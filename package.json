@@ -1,0 +1,13 @@
+{
+    "repository": "git@github.com:Rupertofly/rupertofly.github.io.git",
+    "author": "Ruby Quail <ruby@rubyquail.design>",
+    "devDependencies": {
+        "@prettier/plugin-pug": "^1.2.0",
+        "prettier": "^2.0.2"
+    },
+    "prettier": {
+        "plugins": [
+            "@prettier/plugin-pug"
+        ]
+    }
+}
