@@ -23,6 +23,15 @@
   font-weight: 400;
   content: "\f15b";
 }
+#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, auto));
+  gap: 16px;
+  & > section {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
 body {
   background-color: #d34f73;
 }
@@ -34,6 +43,17 @@ header {
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
+  //   overflow: hidden;
+}
+header,
+#bio {
+  display: flex;
+  justify-content: center;
+  & > * {
+  }
+}
+section > *:not(img) {
+  padding-left: 16px;
 }
 #bio > img {
   border-radius: 50%;
