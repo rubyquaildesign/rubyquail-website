@@ -8,9 +8,13 @@ body {
 
 .grid {
   border-radius: 8px;
+  display: -ms-grid;
   display: grid;
-  align-items: start;
-  grid-template-columns: repeat(auto-fit, 256px);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -ms-grid-columns: (256px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 256px);
   background-color: #fafafa;
   margin: 1em 0.5em;
   padding-bottom: 30px;
@@ -35,7 +39,8 @@ body {
   background-size: auto 60px, auto 60px;
   background-position: bottom -4px right -4px, top -4px left -5px;
   background-clip: padding-box;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
   margin: 1em 0.5em;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -46,18 +51,24 @@ body {
 }
 
 h1 {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 h3 {
-  font-family: "Ubuntu Mono";
+  font-family: 'Ubuntu Mono';
 }
 
 .c-grid {
+  display: -ms-grid;
   display: grid;
-  justify-content: center;
-  grid-template-columns: max-content minmax(auto, 480px);
-  grid-template-rows: repeat(auto, 6);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: max-content minmax(auto, 480px);
+      grid-template-columns: -webkit-max-content minmax(auto, 480px);
+      grid-template-columns: max-content minmax(auto, 480px);
+  -ms-grid-rows: (6)[auto];
+      grid-template-rows: repeat(auto, 6);
   grid-column-gap: 16px;
 }
 
@@ -69,23 +80,33 @@ h3 {
   widows: 100%;
   height: 500px;
   border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (max-width: 576px) {
   .c-grid {
+    display: -ms-grid;
     display: grid;
-    justify-content: left;
-    grid-template-columns: minmax(auto, 480px);
-    grid-template-rows: repeat(auto, 6);
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -ms-grid-columns: minmax(auto, 480px);
+        grid-template-columns: minmax(auto, 480px);
+    -ms-grid-rows: (6)[auto];
+        grid-template-rows: repeat(auto, 6);
     grid-column-gap: 16px;
   }
-
   .c-grid > h3 {
     text-align: left;
   }
 }
-
 /*# sourceMappingURL=styles.css.map */
