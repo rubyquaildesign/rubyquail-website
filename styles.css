@@ -49,17 +49,28 @@ article,
 header {
   background-color: white;
   max-width: 900px;
-  margin-bottom: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
+  margin: 16px auto;
+  padding: 16px 16px;
 }
 
 header,
 #bio {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template: "c t" auto "c l" auto/1fr 1fr;
 }
+header img,
+#bio img {
+  grid-area: c;
+}
+header section,
+#bio section {
+  grid-area: t;
+}
+header nav,
+#bio nav {
+  grid-area: l;
+}
+
 section > *:not(img) {
   padding-left: 16px;
 }
