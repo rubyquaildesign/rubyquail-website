@@ -1,114 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 #socials > a::before {
-  font-family: "Font Awesome 5 Brands";
+    font-family: "Font Awesome 5 Brands";
 }
 #em::before {
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900;
-  content: "\f0e0 ";
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900;
+    content: "\f0e0 ";
 }
 #tw::before {
-  content: "\f099";
+    content: "\f099";
 }
 #li::before {
-  content: "\f0e1";
+    content: "\f0e1";
 }
 #ig::before {
-  content: "\f16d";
+    content: "\f16d";
 }
 #ig::before {
-  content: "\f16d";
+    content: "\f16d";
 }
 #re::before {
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 400;
-  content: "\f15b";
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 400;
+    content: "\f15b";
 }
 #projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(288px, auto));
-  gap: 16px;
-  & > section {
-    border-radius: 8px;
-    overflow: hidden;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(288px, auto));
+    gap: 16px;
+    & > section {
+        border-radius: 8px;
+        overflow: hidden;
+    }
 }
 body {
-  background-color: #d34f73;
+    background-color: #d34f73;
+    font-family: "Work Sans";
 }
 article,
 header {
-  background-color: white;
-  max-width: 900px;
-  margin: 16px auto;
-  padding: 16px 16px;
+    background-color: white;
+    max-width: 900px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    //   overflow: hidden;
 }
-header,
 #bio {
-  display: grid;
-  grid-template:
-    "c t" auto
-    "c l" auto / 1fr 1fr;
-  img {
-    grid-area: c;
-  }
-  section {
-    grid-area: t;
-  }
-  nav {
-    grid-area: l;
-  }
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    & > * {
+        width: 50%;
+        flex-grow: 1;
+    }
 }
 section > *:not(img) {
-  padding-left: 16px;
+    padding-left: 16px;
 }
-#bio > img {
-  border-radius: 50%;
+#bio > div > img {
+    border-radius: 50%;
+    max-width: 400px;
+    text-align: right;
 }
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 .fab {
-  display: inline;
+    display: inline;
 }
 .fas {
-  display: inline;
+    display: inline;
 }
 .rqicon {
-  color: #f383a2;
+    color: #f383a2;
 }
 .rqicon:hover {
-  color: #d34f73;
-  text-decoration: none;
+    color: #d34f73;
+    text-decoration: none;
 }
 
 .display {
-  color: #f383a2;
-  font-family: Fredoka One, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #f383a2;
+    font-family: Quicksand, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
 body {
-  font-family: Work Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  color: #2c3137;
+    font-family: Work Sans, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-size: 16px;
+    color: #2c3137;
 }
 a {
-  font-family: Work Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: Work Sans, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
 h3,
+h1,
 h2 {
-  font-family: Quicksand;
+    font-family: Quicksand;
 }
 .wb {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 0.25em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25em;
 }
 @media screen and (max-width: 576px) {
-  .wb {
-    max-width: 350px;
-  }
+    .wb {
+        max-width: 350px;
+    }
 }
 .pb {
-  background-color: #fdbfcf;
+    background-color: #fdbfcf;
 }

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 #socials > a::before {
   font-family: "Font Awesome 5 Brands";
 }
@@ -43,40 +44,39 @@
 
 body {
   background-color: #d34f73;
+  font-family: "Work Sans";
 }
 
 article,
 header {
   background-color: white;
   max-width: 900px;
-  margin: 16px auto;
-  padding: 16px 16px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
 }
 
-header,
 #bio {
-  display: grid;
-  grid-template: "c t" auto "c l" auto/1fr 1fr;
+  display: flex;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
-header img,
-#bio img {
-  grid-area: c;
-}
-header section,
-#bio section {
-  grid-area: t;
-}
-header nav,
-#bio nav {
-  grid-area: l;
+#bio > * {
+  width: 50%;
+  flex-grow: 1;
 }
 
 section > *:not(img) {
   padding-left: 16px;
 }
 
-#bio > img {
+#bio > div > img {
   border-radius: 50%;
+  max-width: 400px;
+  text-align: right;
 }
 
 img {
@@ -102,7 +102,7 @@ img {
 
 .display {
   color: #f383a2;
-  font-family: Fredoka One, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Quicksand, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -116,6 +116,7 @@ a {
 }
 
 h3,
+h1,
 h2 {
   font-family: Quicksand;
 }
