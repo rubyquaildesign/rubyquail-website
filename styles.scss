@@ -24,12 +24,15 @@
     font-weight: 400;
     content: "\f15b";
 }
+img {
+    border-radius: 8px;
+}
 #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(288px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+
     gap: 16px;
     & > section {
-        border-radius: 8px;
         overflow: hidden;
     }
 }
@@ -45,27 +48,38 @@ header {
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
+    padding: 16px 16px;
     //   overflow: hidden;
 }
 #bio {
-    display: flex;
-    height: 600px;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     justify-items: center;
-    & > * {
-        width: 50%;
-        flex-grow: 1;
+    img {
+        border-radius: 50%;
+        margin: 16px 16px;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 100%;
+        height: auto;
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            * {
+                margin: 4px 8px;
+            }
+        }
     }
 }
 section > *:not(img) {
     padding-left: 16px;
 }
-#bio > div > img {
-    border-radius: 50%;
-    max-width: 400px;
-    text-align: right;
-}
+
 img {
     max-width: 100%;
 }
