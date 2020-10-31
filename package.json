@@ -1,0 +1,11 @@
+{
+  "name": "rupertofly.github.io",
+  "version": "1.0.0",
+  "main": "index.pug",
+  "repository": "git@github.com:Rupertofly/rupertofly.github.io.git",
+  "author": "Ruby Quail <ruby@rubyquail.design>",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
