@@ -5,9 +5,9 @@
  */
 
 /* Body */
-@import 'normalize.css';
+@import 'normalize.scss';
 
-@import 'vars';
+@import 'vars.scss';
 html {
   font-size: 62.5%; // So that root size becomes 10px
   font-family: var(--font-family-base);
@@ -98,10 +98,11 @@ hr {
 a {
   text-decoration: none;
   color: var(--color-blossom);
-
+  border-bottom: 2px solid #fff0;
+  transition: all 75ms;
   &:hover {
     color: var(--color-fade);
-    border-bottom: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--color-fade);
   }
 }
 

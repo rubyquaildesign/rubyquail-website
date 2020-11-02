@@ -6,6 +6,8 @@
   "author": "Ruby Quail <ruby@rubyquail.design>",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.11.1",
+    "eleventy-plugin-sass": "^1.1.1",
+    "feather-icons": "^4.28.0"
   }
 }

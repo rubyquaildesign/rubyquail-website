@@ -1,1 +1,33 @@
-@import 'normalize.css';
+@import 'sakura.scss';
+article,
+header,
+footer {
+  background-color: white;
+  padding: 2em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+  box-shadow: 0.3em 0.3em 0.2em #00000011;
+}
+.feather {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  top: 0.175em;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+#socials {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    margin: 0em 0.5em;
+  }
+}
+#portrait {
+  border-radius: 50%;
+}
