@@ -9,5 +9,8 @@
     "@11ty/eleventy": "^0.11.1",
     "eleventy-plugin-sass": "^1.1.1",
     "feather-icons": "^4.28.0"
+  },
+  "dependencies": {
+    "simplex-noise": "^2.4.0"
   }
 }
