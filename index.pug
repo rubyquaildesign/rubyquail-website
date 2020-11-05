@@ -1,7 +1,8 @@
-doctype html
+<!DOCTYPE html>
+html(lang="en")
 head
   meta(charset='UTF-8')
-
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
   meta(name='author', content='Ruby Quail')
   meta(
     name='description',
@@ -18,12 +19,15 @@ head
     content='Ruby is an Industrial Design graduate from Melbourne. She is interested in socially conscious design and achieving positive social change through the use of digital technology. This is her website'
   )
   title Ruby Quail
-    link
-  link(rel='stylesheet', href='/css/style.css', type)
-
+  link(href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&family=Work+Sans:ital@0;1&display=swap", rel="stylesheet")
+  link(rel='stylesheet', href='/css/style.css')
+  style
+    include ./css/vars.scss
 body
   //- Title
+  include title.svg
 
+  script(defer, src="/scripts/pier.js", type="module")
   header#title
     h1 Ruby Quail Design
     #services

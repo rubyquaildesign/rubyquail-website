@@ -2,11 +2,20 @@
 article,
 header,
 footer {
-  background-color: white;
+  background-color: var(--color-bg-card);
   padding: 2em;
   margin-bottom: 2em;
   border-radius: 1em;
   box-shadow: 0.3em 0.3em 0.2em #00000011;
+}
+body > svg {
+  background-color: transparent;
+  margin-bottom: -2em;
+}
+h1 {
+  color: var(--color-blossom);
+  font-family: 'Fredoka One';
+  font-size: 4em;
 }
 .feather {
   width: 1em;

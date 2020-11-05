@@ -7,7 +7,8 @@
 /* Body */
 @import 'normalize.scss';
 
-@import 'vars.scss';
+// @import 'vars.scss';
+
 html {
   font-size: 62.5%; // So that root size becomes 10px
   font-family: var(--font-family-base);
@@ -17,7 +18,7 @@ body {
   // $font-size-base must be a rem value
   font-size: var(--font-size-base);
   line-height: 1.618;
-  max-width: 38em;
+  max-width: 42em;
   margin: auto;
   color: var(--color-text);
   background-color: var(--color-bg);
