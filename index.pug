@@ -24,6 +24,11 @@ head
   style
     include ./css/vars.scss
 body
+  script(defer src="/scripts/nightMode.js")
+  nav
+    button#nm-switch
+      svg.dm: use#nm-icon(xlink:href='/icns/feather-sprite.svg#instagram')
+
   //- Title
   include title.svg
 

@@ -28,6 +28,35 @@ h1 {
   stroke-linejoin: round;
   fill: none;
 }
+nav > button {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  padding: 0.1em;
+  background-color: transparent;
+  border: none;
+  &:hover:enabled {
+    background-color: transparent;
+  }
+  &:focus:enabled {
+    background-color: transparent;
+  }
+}
+button > .dm {
+  width: 2em;
+  height: 2em;
+  stroke: var(--color-blossom);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: all 150ms;
+  transform: scale(1);
+  &:hover {
+    stroke: var(--color-fade);
+    transform: scale(1.1);
+  }
+}
 #socials {
   display: flex;
   flex-direction: row;

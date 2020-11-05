@@ -1,24 +1,29 @@
 :root {
   --font-family-base: Work Sans;
   --font-size-base: 1.6rem;
+  --color-text: #fafafa;
+  --color-bg: #2c3137;
+  --font-family-heading: Quicksand;
+  --color-blossom: #fdbfcf;
+  --color-fade: #f383a2;
+  --color-bg-alt: #ffeafd;
+  --color-bg-card: #01798c;
+}
+body.light {
   --color-text: #2c3137;
   --color-bg: #95e0ec;
-  --font-family-heading: Quicksand;
+
   --color-blossom: #d34f73;
   --color-fade: #f383a2;
   --color-bg-alt: #ffeafd;
   --color-bg-card: #fafafa;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --font-family-base: Work Sans;
-    --font-size-base: 1.6rem;
-    --color-text: #fafafa;
-    --color-bg: #2c3137;
-    --font-family-heading: Quicksand;
-    --color-blossom: #fdbfcf;
-    --color-fade: #f383a2;
-    --color-bg-alt: #ffeafd;
-    --color-bg-card: #01798c;
-  }
+body.dark {
+  --color-text: #fafafa;
+  --color-bg: #2c3137;
+
+  --color-blossom: #fdbfcf;
+  --color-fade: #f383a2;
+  --color-bg-alt: #ffeafd;
+  --color-bg-card: #01798c;
 }
