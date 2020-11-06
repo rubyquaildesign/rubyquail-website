@@ -1,3 +1,4 @@
+include /mixins.pug
 <!DOCTYPE html>
 html(lang="en")
 head
@@ -27,12 +28,13 @@ body
   script(defer src="/scripts/nightMode.js")
   nav
     button#nm-switch
-      svg.dm: use#nm-icon(xlink:href='/icns/feather-sprite.svg#instagram')
+      +icon('sun','dm','nm-icon')
 
   //- Title
   include title.svg
 
   script(defer, src="/scripts/pier.js", type="module")
+    include ./_site/scripts/pier.js
   header#title
     h1 Ruby Quail Design
     #services
@@ -54,19 +56,19 @@ body
         | She is interested in socially conscious design and achieving positive social change through the use of digital technology. She is transgender and uses she/her pronouns.
       nav#socials
         a#em(href='#')
-          svg.feather: use(xlink:href='/icns/feather-sprite.svg#mail')
+          +icon('mail','feather','')
           | &nbsp;Email
         a#tw(href='#')
-          svg.feather: use(xlink:href='/icns/feather-sprite.svg#twitter')
+          +icon('twitter','feather','')
           | &nbsp;Twitter
         a#li(href='#') 
-          svg.feather: use(xlink:href='/icns/feather-sprite.svg#instagram')
+          +icon('instagram','feather','')
           | &nbsp;Instagram
         a#ig(href='#') 
-          svg.feather: use(xlink:href='/icns/feather-sprite.svg#linkedin')
+          +icon('linkedin','feather','')
           | &nbsp;LinkedIn
         a#re(href='#')
-          svg.feather: use(xlink:href='/icns/feather-sprite.svg#file-text')
+          +icon('file-text','feather','')
           | &nbsp;Resume
 
   //- Project List
