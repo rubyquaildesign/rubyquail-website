@@ -1,105 +1,104 @@
 include /mixins.pug
 <!DOCTYPE html>
 html(lang="en")
-head
-  meta(charset='UTF-8')
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  meta(name='author', content='Ruby Quail')
-  meta(
-    name='description',
-    content='Ruby is an Industrial Design graduate from Melbourne. She is interested in socially conscious design and achieving positive social change through the use of digital technology. This is her website'
-  )
-  meta(
-    property='og:image',
-    content='http://files.rubyquail.design/portrait_square.png'
-  )
-  meta(property='og:type', content='profile')
-  meta(property='og:url', content='http://rubyquail.design')
-  meta(
-    property='og:description',
-    content='Ruby is an Industrial Design graduate from Melbourne. She is interested in socially conscious design and achieving positive social change through the use of digital technology. This is her website'
-  )
-  title Ruby Quail
-  link(href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&family=Work+Sans:ital@0;1&display=swap", rel="stylesheet")
-  link(rel='stylesheet', href='/css/style.css')
-  style
-    include ./css/vars.scss
-body
-  script(defer src="/scripts/nightMode.js")
-  nav
-    button#nm-switch
-      +icon('sun','dm','nm-icon')
-
-  //- Title
-  include title.svg
-
-  script(defer, src="/scripts/pier.js", type="module")
-    include ./_site/scripts/pier.js
-  header#title
-    h1 Ruby Quail Design
-    #services
-      h2 Exhibition
-      h2 Industrial
-      h2 Service
-      h2 Interaction
-      h2 Digital
-
-    //- Bio
-
-  article#bio
-    img#portrait(
-      src='http://files.rubyquail.design/portrait_square.png',
-      alt='portrait'
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name='author', content='Ruby Quail')
+    meta(
+      name='description',
+      content='Ruby is an Industrial Design graduate from Melbourne. She is interested in socially conscious design and achieving positive social change through the use of digital technology. This is her website'
     )
-    section
-      p Ruby is an Industrial Design graduate from Melbourne. <br/>
-        | She is interested in socially conscious design and achieving positive social change through the use of digital technology. She is transgender and uses she/her pronouns.
-      nav#socials
-        a#em(href='#')
-          +icon('mail','feather','')
-          | &nbsp;Email
-        a#tw(href='#')
-          +icon('twitter','feather','')
-          | &nbsp;Twitter
-        a#li(href='#') 
-          +icon('instagram','feather','')
-          | &nbsp;Instagram
-        a#ig(href='#') 
-          +icon('linkedin','feather','')
-          | &nbsp;LinkedIn
-        a#re(href='#')
-          +icon('file-text','feather','')
-          | &nbsp;Resume
+    meta(
+      property='og:image',
+      content='http://files.rubyquail.design/portrait_square.png'
+    )
+    meta(property='og:type', content='profile')
+    meta(property='og:url', content='http://rubyquail.design')
+    meta(
+      property='og:description',
+      content='Ruby is an Industrial Design graduate from Melbourne. She is interested in socially conscious design and achieving positive social change through the use of digital technology. This is her website'
+    )
+    title Ruby Quail
+    link(href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&family=Work+Sans:ital@0;1&display=swap", rel="stylesheet")
+    link(rel='stylesheet', href='/css/style.css')
+    style
+      include ./css/vars.scss
+  body
+    script(defer src="/scripts/nightMode.js")
+    nav
+      button#nm-switch(aria-label='Night Mode Button')
+        +icon('sun','dm','nm-icon')
 
-  //- Project List
+    //- Title
+    include title.svg
 
-  article#projects
-    section#cosm
-      img(src='./img/cosmosColor.svg', alt='')
-      h2 cosm.os
-      h3 Discovering the future of online communities
-      p "cosm.os" is a speculative digital simulation of a social network. cosm.os is made of many experiences designed to enable users to experiment and analyse how various social behaviours and systems affect one another.
-      a(href='#') more here
-    section#dlr
-      img(src='./img/DlrColor.svg', alt='')
-      h2 Digital Legal Record
-      h3 Developing a more accessable duty lawyer system
-      p Digital Legal Record was a project undertaken with Victoria Legal Aid aiming to simplify and improve their duty lawyer service. A number of interventions were devised including digitisation and standardisation of record keeping and improved communication between various legal bodies.
-      a(href='#') more here
-    section#urbc
-      img(src='./img/UCColor.svg', alt='')
-      h2 Urban Courtyard
-      h3 Envisioning the future of high density living in the gig economy
-      p Urban Courtyard is an architecture and industrial design project aimed at high density living in the near future. Urban Courtyard incorporated growing social trends such as the gig economy and new technologies such as IoT into a collaborative living space.
-      a(href='#') more here
-    section#glove
-      h2 Glove
-      h3 Human computer interaction in the mobile age
-      p Glove is a controller for mobile devices, allowing for non-visual, private interaction in public.
-      a(href='#') more here
+    script(defer, src="/scripts/pier.js", type="module")
+      include ./_site/scripts/pier.js
+    header#title
+      h1 Ruby Quail Design
+      #services
+        h2 Service
+        h2 Industrial
+        h2 Interaction
+        h2 Digital
 
-  //- Footer Links
-  footer
-    h2 Links
-    p My #[a(href='#') Folio]
-    p My Industrial Design Honours #[a(href='#') Thesis]
+      //- Bio
+
+    article#bio
+      img#portrait(
+        src='http://files.rubyquail.design/portrait_square.png',
+        alt='portrait'
+      )
+      section
+        p Ruby is an Industrial Design graduate from Melbourne. <br/>
+          | She is interested in socially conscious design and achieving positive social change through the use of digital technology. She is transgender and uses she/her pronouns.
+        nav#socials
+          a#em(href='#')
+            +icon('mail','feather','')
+            | &nbsp;Email
+          a#tw(href='#')
+            +icon('twitter','feather','')
+            | &nbsp;Twitter
+          a#li(href='#') 
+            +icon('instagram','feather','')
+            | &nbsp;Instagram
+          a#ig(href='#') 
+            +icon('linkedin','feather','')
+            | &nbsp;LinkedIn
+          a#re(href='#')
+            +icon('file-text','feather','')
+            | &nbsp;Resume
+
+    //- Project List
+
+    article#projects
+      section#cosm
+        img(src='./img/cosmosColor.svg', alt='')
+        h2 cosm.os
+        h3 Discovering the future of online communities
+        p "cosm.os" is a speculative digital simulation of a social network. cosm.os is made of many experiences designed to enable users to experiment and analyse how various social behaviours and systems affect one another.
+        a(href='#') more here
+      section#dlr
+        img(src='./img/DlrColor.svg', alt='')
+        h2 Digital Legal Record
+        h3 Developing a more accessable duty lawyer system
+        p Digital Legal Record was a project undertaken with Victoria Legal Aid aiming to simplify and improve their duty lawyer service. A number of interventions were devised including digitisation and standardisation of record keeping and improved communication between various legal bodies.
+        a(href='#') more here
+      section#urbc
+        img(src='./img/UCColor.svg', alt='')
+        h2 Urban Courtyard
+        h3 Envisioning the future of high density living in the gig economy
+        p Urban Courtyard is an architecture and industrial design project aimed at high density living in the near future. Urban Courtyard incorporated growing social trends such as the gig economy and new technologies such as IoT into a collaborative living space.
+        a(href='#') more here
+      section#glove
+        h2 Glove
+        h3 Human computer interaction in the mobile age
+        p Glove is a controller for mobile devices, allowing for non-visual, private interaction in public.
+        a(href='#') more here
+
+    //- Footer Links
+    footer
+      h2 Links
+      p My #[a(href='#') Folio]
+      p My Industrial Design Honours #[a(href='#') Thesis]

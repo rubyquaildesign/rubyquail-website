@@ -63,9 +63,43 @@ button > .dm {
   flex-wrap: wrap;
   justify-content: center;
   a {
-    margin: 0em 0.5em;
+    margin: 0.2em 0.2em;
   }
+}
+a {
+  color: var(--color-link);
+  background-color: var(--color-link-bg);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: var(--link-bd, 0px);
 }
 #portrait {
   border-radius: 50%;
+}
+#services {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  & > h2 {
+    margin-top: 0.5rem;
+  }
+}
+#bio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  & > * {
+    max-width: 45%;
+  }
+  @media screen and (max-width: 684px) {
+    flex-wrap: wrap;
+    & > * {
+      max-width: 100%;
+    }
+    & > #portrait {
+      max-width: 50%;
+    }
+  }
 }

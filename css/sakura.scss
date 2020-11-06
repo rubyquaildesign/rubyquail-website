@@ -27,13 +27,13 @@ body {
 
 @media (max-width: 684px) {
   body {
-    font-size: calc(var(--font-size-base) * 0.85);
+    // font-size: calc(var(--font-size-base) * 0.85);
   }
 }
 
 @media (max-width: 382px) {
   body {
-    font-size: calc(var(--font-size-base) * 0.75);
+    font-size: calc(var(--font-size-base) * 0.85);
   }
 }
 
@@ -60,6 +60,7 @@ h6 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   @include word-wrap;
+  hyphens: none;
 }
 
 h1 {
@@ -99,7 +100,7 @@ hr {
 a {
   text-decoration: none;
   color: var(--color-blossom);
-  border-bottom: 2px solid #fff0;
+  border-bottom: 2px solid transparent;
   transition: all 75ms;
   &:hover {
     color: var(--color-fade);

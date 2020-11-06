@@ -14,6 +14,8 @@ body.light {
   --color-bg: #95e0ec;
 
   --color-blossom: #d34f73;
+  --color-link: #ab2f51;
+  --color-link-bg: #fafafa;
   --color-fade: #f383a2;
   --color-bg-alt: #ffeafd;
   --color-bg-card: #fafafa;
@@ -21,9 +23,11 @@ body.light {
 body.dark {
   --color-text: #fafafa;
   --color-bg: #2c3137;
-
   --color-blossom: #fdbfcf;
+  --color-link: #fddfef;
+  --color-link-bg: #00404a55;
   --color-fade: #f383a2;
   --color-bg-alt: #ffeafd;
   --color-bg-card: #01798c;
+  --link-bd: 0.25em;
 }
