@@ -13,9 +13,13 @@
     "lodash": "^4.17.20"
   },
   "dependencies": {
+    "js-yaml": "^3.14.0",
     "node-sass": "^5.0.0",
     "sass": "^1.28.0",
-    "simplex-noise": "^2.4.0"
+    "simplex-noise": "^2.4.0",
+    "toml": "^3.0.0"
   },
-  "scripts": {"serve":"npx @11ty/eleventy --config=.eleventy.js --serve"}
+  "scripts": {
+    "serve": "npx @11ty/eleventy --config=.eleventy.js --serve"
+  }
 }
