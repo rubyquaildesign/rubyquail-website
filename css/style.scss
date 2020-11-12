@@ -12,6 +12,11 @@ body > svg {
   background-color: transparent;
   margin-bottom: -2em;
 }
+.lk {
+  stroke-width: 5;
+  transform: translate(67.5%, 0%) scale(0.325);
+  fill: var(--color-bg);
+}
 h1 {
   color: var(--color-blossom);
   font-family: 'Fredoka One';

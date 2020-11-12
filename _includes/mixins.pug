@@ -1,2 +1,5 @@
 mixin icon(icon,svgClass,useId)
   svg(class=svgClass): use(xlink:href=`/icns/feather-sprite.svg#${icon}`, id=useId)
+
+mixin us(icon,id)
+  use(xlink:href=`/icns/feather-sprite.svg#${icon}`, id=id)

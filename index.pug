@@ -13,7 +13,9 @@ block content
   script(defer src="/scripts/nightMode.js")
   nav
     button#nm-switch(aria-label='Night Mode Button')
-      +icon('sun','dm','nm-icon')
+      svg.dm
+        +us('', 'nm-icon')
+        g#lk.lk(visibility='visible'): +us('lock')
   //- Title
   include title.svg
   script(defer, src="/scripts/pier.js", type="module")
