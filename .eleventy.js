@@ -7,7 +7,9 @@ const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 const { exec } = require("child_process");
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.setTemplateFormats(['pug', 'scss', 'svg'])
+  eleventyConfig.setTemplateFormats(['pug', 'scss'])
+  eleventyConfig.addPassthroughCopy('img')
+  eleventyConfig.addPassthroughCopy('icns')
   eleventyConfig.addDataExtension('yaml', c => yaml.safeLoad(c))
   // eleventyConfig.addPassthroughCopy('scripts/*.js')
   eleventyConfig.addPlugin(pluginSass);
@@ -21,7 +23,6 @@ module.exports = (eleventyConfig) => {
     })
   })
   return {
-    dir: {
-    }
+    
   }
 }

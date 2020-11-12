@@ -1,6 +1,4 @@
----
-title: 'Ruby Quail Design'
----
+
 extends /homepageLayout.pug
 include /mixins.pug
 
@@ -10,7 +8,7 @@ block head
     include ./css/vars.scss
 
 block content
-  script(defer src="/scripts/nightMode.js")
+  script(defer src='/scripts/nightMode.js')
   nav
     button#nm-switch(aria-label='Night Mode Button')
       svg.dm
@@ -18,10 +16,10 @@ block content
         g#lk.lk(visibility='visible'): +us('lock')
   //- Title
   include title.svg
-  script(defer, src="/scripts/pier.js", type="module")
+  script(defer, src='/scripts/pier.js', type='module')
     include ./_site/scripts/pier.js
   header#title
-    h1 Ruby Quail Design
+    h1.title Ruby Quail Design
     #services
       h2 Service
       h2 Industrial
@@ -52,31 +50,23 @@ block content
         a#re(href='#')
           +icon('file-text','feather','')
           | &nbsp;Resume
+
   //- Project List
+
   article#projects
-    section#cosm
-      img(src='./img/cosmosColor.svg', alt='')
-      h2 cosm.os
-      h3 Discovering the future of online communities
-      p "cosm.os" is a speculative digital simulation of a social network. cosm.os is made of many experiences designed to enable users to experiment and analyse how various social behaviours and systems affect one another.
-      a(href='#') more here
-    section#dlr
-      img(src='./img/DlrColor.svg', alt='')
-      h2 Digital Legal Record
-      h3 Developing a more accessable duty lawyer system
-      p Digital Legal Record was a project undertaken with Victoria Legal Aid aiming to simplify and improve their duty lawyer service. A number of interventions were devised including digitisation and standardisation of record keeping and improved communication between various legal bodies.
-      a(href='#') more here
-    section#urbc
-      img(src='./img/UCColor.svg', alt='')
-      h2 Urban Courtyard
-      h3 Envisioning the future of high density living in the gig economy
-      p Urban Courtyard is an architecture and industrial design project aimed at high density living in the near future. Urban Courtyard incorporated growing social trends such as the gig economy and new technologies such as IoT into a collaborative living space.
-      a(href='#') more here
-    section#glove
-      h2 Glove
-      h3 Human computer interaction in the mobile age
-      p Glove is a controller for mobile devices, allowing for non-visual, private interaction in public.
-      a(href='#') more here
+    h1 Projects
+    each prj in [...collections.project].reverse()
+      section(id=prj.fileSlug)
+        img.proj-icon(src=prj.data.img alt=prj.data.title)
+        div
+          h2= prj.data.title
+          h3= prj.data.subtitle
+          p= prj.data.desc
+          if prj.data.ready
+            a(href=prj.url) More here
+          else
+            p case study coming soon
+
   //- Footer Links
   footer
     h2 Links
