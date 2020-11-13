@@ -3,7 +3,7 @@ extends /homepageLayout.pug
 include /mixins.pug
 
 block head
-  link(rel='stylesheet', href='/css/style.css')
+  link(rel='stylesheet', href='/css/style.css' preload)
   style
     include ./css/vars.scss
 
@@ -32,8 +32,7 @@ block content
       alt='portrait'
     )
     section
-      p Ruby is an Industrial Design graduate from Melbourne. <br/>
-        | She is interested in socially conscious design and achieving positive social change through the use of digital technology. She is transgender and uses she/her pronouns.
+      include:markdown-it ./intro.md
       nav#socials
         a#em(href=g.mailUrl)
           +icon('mail','feather','')
@@ -47,28 +46,20 @@ block content
         a#ig(href=g.linkedIn) 
           +icon('linkedin','feather','')
           | &nbsp;LinkedIn
-        a#re(href='#')
-          +icon('file-text','feather','')
-          | &nbsp;Resume
 
   //- Project List
 
   article#projects
-    h1 Projects
+    h2 Projects
     each prj in [...collections.project].reverse()
       section(id=prj.fileSlug)
         img.proj-icon(src=prj.data.img alt=prj.data.title)
         div
-          h2= prj.data.title
-          h3= prj.data.subtitle
+          h3= prj.data.title
+          h4= prj.data.subtitle
           p= prj.data.desc
           if prj.data.ready
             a(href=prj.url) More here
           else
             p case study coming soon
 
-  //- Footer Links
-  footer
-    h2 Links
-    p My #[a(href='#') Folio]
-    p My Industrial Design Honours #[a(href='#') Thesis]

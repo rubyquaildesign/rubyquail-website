@@ -14,6 +14,7 @@ module.exports = (eleventyConfig) => {
   // eleventyConfig.addPassthroughCopy('scripts/*.js')
   eleventyConfig.addPlugin(pluginSass);
   eleventyConfig.addWatchTarget('./src/')
+  eleventyConfig.addWatchTarget('./*.md')
   eleventyConfig.on('beforeBuild', (changed) => {
     return new Promise((res) => {
       exec('tsc', () => {
