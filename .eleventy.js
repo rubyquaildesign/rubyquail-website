@@ -10,6 +10,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setTemplateFormats(['pug', 'scss'])
   eleventyConfig.addPassthroughCopy('img')
   eleventyConfig.addPassthroughCopy('icns')
+  eleventyConfig.addPassthroughCopy('favicon.png')
   eleventyConfig.addPassthroughCopy('scripts')
   eleventyConfig.addDataExtension('yaml', c => yaml.safeLoad(c))
   // eleventyConfig.addPassthroughCopy('scripts/*.js')
