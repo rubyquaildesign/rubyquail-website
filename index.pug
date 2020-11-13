@@ -1,0 +1,65 @@
+
+extends /homepageLayout.pug
+include /mixins.pug
+
+block head
+  link(rel='stylesheet', href='/css/style.css' preload)
+  style
+    include ./css/vars.scss
+
+block content
+  script(defer src='/scripts/nightMode.js')
+  nav
+    button#nm-switch(aria-label='Night Mode Button')
+      svg.dm
+        +us('', 'nm-icon')
+        g#lk.lk(visibility='visible'): +us('lock')
+  //- Title
+  include title.svg
+  script(defer, src='/scripts/pier.js', type='module')
+    include ./_site/scripts/pier.js
+  header#title
+    h1.title Ruby Quail Design
+    #services
+      h2 Service
+      h2 Industrial
+      h2 Interaction
+      h2 Digital
+    //- Bio
+  article#bio
+    img#portrait(
+      srcset=`${g.blobUrl}/portrait/portrait_square.jpg 1080w, ${g.blobUrl}/portrait/portrait_squaresml.jpg 300w`,
+      alt='portrait'
+    )
+    section
+      include:markdown-it ./intro.md
+      nav#socials
+        a#em(href=g.mailUrl)
+          +icon('mail','feather','')
+          | &nbsp;Email
+        a#tw(href=g.twitterUrl)
+          +icon('twitter','feather','')
+          | &nbsp;Twitter
+        a#li(href=g.instagramUrl) 
+          +icon('instagram','feather','')
+          | &nbsp;Instagram
+        a#ig(href=g.linkedIn) 
+          +icon('linkedin','feather','')
+          | &nbsp;LinkedIn
+
+  //- Project List
+
+  article#projects
+    h2 Projects
+    each prj in [...collections.project].reverse()
+      section(id=prj.fileSlug)
+        img.proj-icon(src=prj.data.img alt=prj.data.title)
+        div
+          h3= prj.data.title
+          h4= prj.data.subtitle
+          p= prj.data.desc
+          if prj.data.ready
+            a(href=prj.url) More here
+          else
+            p case study coming soon
+

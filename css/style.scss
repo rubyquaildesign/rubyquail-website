@@ -1,0 +1,150 @@
+@import 'sakura.scss';
+article,
+header,
+footer {
+  background-color: var(--color-bg-card);
+  padding: 2em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+  box-shadow: 0.3em 0.3em 0.2em #00000011;
+}
+body > svg {
+  background-color: transparent;
+  margin-bottom: -2em;
+}
+.lk {
+  stroke-width: 5;
+  transform: translate(67.5%, 0%) scale(0.325);
+  fill: var(--color-bg);
+}
+h1.title {
+  color: var(--color-blossom);
+  font-family: 'Fredoka One';
+  font-size: 4em;
+  text-align: center;
+}
+.feather {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  top: 0.175em;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+nav > button {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  padding: 0.1em;
+  background-color: transparent;
+  border: none;
+  &:hover:enabled {
+    background-color: transparent;
+  }
+  &:focus:enabled {
+    background-color: transparent;
+  }
+}
+button > .dm {
+  width: 2em;
+  height: 2em;
+  stroke: var(--color-blossom);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: all 150ms;
+  transform: scale(1);
+  &:hover {
+    stroke: var(--color-fade);
+    transform: scale(1.1);
+  }
+}
+#socials {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    margin: 0.3em 0.3em;
+  }
+}
+a {
+  color: var(--color-link);
+  background-color: var(--color-link-bg);
+  border-radius: var(--link-bd, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  a {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: var(--link-bd, 0px);
+  }
+}
+@media (prefers-color-scheme: light) {
+  a {
+    padding-left: inherit;
+    padding-right: inherit;
+    border-radius: 0px;
+  }
+}
+.dark a {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: var(--link-bd, 0px);
+}
+.light a {
+  padding-left: inherit;
+  padding-right: inherit;
+  border-radius: 0px;
+}
+
+#portrait {
+  border-radius: 50%;
+}
+#services {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  & > h2 {
+    margin: 0.5rem 1.5rem;
+  }
+}
+#bio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  & > * {
+    max-width: 45%;
+  }
+  @media screen and (max-width: 684px) {
+    flex-wrap: wrap;
+    & > * {
+      max-width: 100%;
+    }
+    & > #portrait {
+      max-width: 50%;
+    }
+  }
+}
+#projects > section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+  column-gap: 2em;
+}
+.proj-icon {
+  max-width: 24em;
+  justify-self: center;
+  margin-top: 3rem;
+  display: block;
+  background-color: #fafafa;
+  border-radius: 2em;
+}
+section {
+  margin-bottom: 1em;
+}
