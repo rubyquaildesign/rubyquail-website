@@ -4,16 +4,9 @@ let value = window.matchMedia('(prefers-color-scheme: dark)')
     .matches
     ? 'dark'
     : 'light';
-if (mode === 'dynamic') {
-    if (value === 'light') {
-        document.body.className = 'light';
-    }
-    else {
-        document.body.className = 'dark';
-    }
-}
-else {
-    document.body.className = mode || 'dark';
+if (!mode) {
+    mode = 'dynamic';
+    sessionStorage.setItem('mode', mode);
 }
 if (document.readyState === 'complete') {
     if (mode === 'dynamic')
@@ -42,7 +35,6 @@ function mdsw(md) {
     }
 }
 const nightModeSwitch = (document.getElementById('nm-switch').onclick = () => {
-    console.log('boom');
     mode = mdsw(mode);
     sessionStorage.setItem('mode', mode);
     let vl = mode;
