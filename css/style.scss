@@ -63,7 +63,7 @@ button > .dm {
     transform: scale(1.1);
   }
   &:focus {
-    outline: solid 2px var(--color-blossom) !important;
+    border: solid 2px var(--color-blossom) !important;
   }
 }
 #socials {
