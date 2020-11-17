@@ -62,7 +62,7 @@ button > .dm {
     stroke: var(--color-fade);
     transform: scale(1.1);
   }
-  &:focus:enabled {
+  &:focus {
     outline: solid 2px var(--color-blossom) !important;
   }
 }
