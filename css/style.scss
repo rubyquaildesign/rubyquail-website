@@ -62,6 +62,11 @@ button > .dm {
     stroke: var(--color-fade);
     transform: scale(1.1);
   }
+  &:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: var(--color-blossom);
+  }
 }
 #socials {
   display: flex;
