@@ -22,7 +22,7 @@
     "toml": "^3.0.0"
   },
   "scripts": {
-    "build": "eleventy --config=.eleventy.js",
+    "build": "tsc; eleventy --config=.eleventy.js",
     "serve": "npx @11ty/eleventy --config=.eleventy.js --serve",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --config=.eleventy.js --serve"
   }

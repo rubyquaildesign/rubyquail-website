@@ -141,16 +141,21 @@ a {
 }
 #projects > section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(24em, 1fr));
   column-gap: 2em;
 }
 .proj-icon {
-  max-width: 24em;
+  max-height: auto;
   justify-self: center;
   margin-top: 3rem;
   display: block;
   background-color: #fafafa;
   border-radius: 2em;
+}
+.projText {
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 4em;
 }
 section {
   margin-bottom: 1em;
