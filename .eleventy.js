@@ -18,14 +18,14 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget('./src/')
   eleventyConfig.addWatchTarget('./*.md')
   eleventyConfig.on('beforeBuild', (changed) => {
-    return new Promise((res) => {
-      exec('tsc', () => {
-        res();
-      });
+    // return new Promise((res) => {
+    //   exec('tsc', () => {
+    //     res();
+    //   });
 
-    })
+    // })
   })
   return {
-    
+
   }
 }

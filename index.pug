@@ -4,7 +4,7 @@ include /mixins.pug
 
 block head
   link(rel='stylesheet', href='/css/style.css' preload)
-  
+
   style
     include ./css/vars.scss
 
@@ -18,7 +18,7 @@ block content
   //- Title
   include title.svg
   script(defer, src='/scripts/pier.js', type='module')
-  
+
   header#title
     h1.title Ruby Quail Design
     #services
@@ -41,10 +41,10 @@ block content
         a#tw(href=g.twitterUrl)
           +icon('twitter','feather','')
           | &nbsp;Twitter
-        a#ig(href=g.instagramUrl) 
+        a#ig(href=g.instagramUrl)
           +icon('instagram','feather','')
           | &nbsp;Instagram
-        a#li(href=g.linkedInUrl) 
+        a#li(href=g.linkedInUrl)
           +icon('linkedin','feather','')
           | &nbsp;LinkedIn
 
@@ -55,7 +55,7 @@ block content
     each prj in [...collections.project].reverse()
       section(id=prj.fileSlug)
         img.proj-icon(src=prj.data.img alt=prj.data.title)
-        div
+        div.projText
           h3= prj.data.title
           h4= prj.data.subtitle
           p= prj.data.desc
@@ -63,4 +63,3 @@ block content
             a(href=prj.url) More here
           else
             p case study coming soon
-

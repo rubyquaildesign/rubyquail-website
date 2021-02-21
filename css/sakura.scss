@@ -18,7 +18,7 @@ body {
   // $font-size-base must be a rem value
   font-size: var(--font-size-base);
   line-height: 1.618;
-  max-width: 48em;
+  max-width: 64em;
   margin: auto;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -68,6 +68,7 @@ h1 {
 }
 h2 {
   font-size: 2em;
+  margin-top: 2rem;
 }
 h3 {
   font-size: 1.75em;
