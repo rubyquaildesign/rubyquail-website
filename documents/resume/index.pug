@@ -16,10 +16,21 @@ html(lang="en")
     aside#sidebar
       section#title
         img#portrait(
-          srcset=`${g.blobUrl}/portrait/portrait_square.jpg 1080w, ${g.blobUrl}/portrait/portrait_squaresml.jpg 300w`,
+          srcset=`https://files.rubyquail.design/portrait/resume_picture.jpg`,
           alt='portrait'
           )
         h1 Ruby Quail
+      section#contact
+        h4 Contact
+        div.ci
+          h6 Email:
+          a(href="mailto:ruby@rubyquail.design") ruby@rubyquail.design
+        div.ci
+          h6 Phone:
+          span (+61)488083812
+        .ci
+          h6 Website/Folio:
+          a(href="https://rubyquail.design") https://rubyquail.design
       section#skills
         h4 Skills
         for skill in skills

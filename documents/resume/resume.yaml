@@ -3,7 +3,7 @@ experience:
     company: Victoria Legal Aid
     from: July 2020
     to: Present
-    desc: 'Working as a service designer for the Digital Legal Aid team, to deliver digital products to aid VLA. worked on CaPP a greenfields case and client management system, as well as help before court, a recently delivered and highly acclaimed public facing client intake service'
+    desc: 'Working as a service designer for the Digital Legal Aid team, to deliver digital products to aid VLA. Worked on CaPP a green-fields case and client management system, as well as help before court, a recently delivered and highly acclaimed public facing client intake service. Responsibilities include: developing wireframes, user journey maps, service blueprints and other design artefacts, conducting user testing and prioritising changes, design discovery and identifying user needs through a variety of research methods, working with practitioners from a variety of fields in an agile environment.'
 
   - role: Contract design researcher
     company: Paper Giant
@@ -21,9 +21,10 @@ experience:
     from: Jan 2019
     to: Present
     desc: 'TGD in Tech is a community for transgender and gender diverse people who work in technology and creative industries. It’s a place to amplify and encourage one another, share our work, build networks and also to give and receive support.'
+
 education:
-  - to: dec 2018
-    from: mar 2014
+  - to: Dec 2018
+    from: Mar 2014
     qual: Bachelor of Industrial Design Honours
     org: RMIT University
     desc: 'Graduated with first class honours. Specialised in conceptual design, service design, digital interaction design, human computer interface design, systems design and inclusive human centred product design.'
@@ -39,3 +40,15 @@ skills:
       - Works well in teams and independantly
       - Critical thinker and problem solver
       - familiar with design thinking and agile methods
+  - type: Software
+    skills:
+      - Adobe Creative Suite (Illustrator, Animate, InDesign, Photoshop, After Effects, Premiere Pro, XD)
+      - Sketch
+      - Figma
+      - Rhino, Solidworks, Fusion 360
+      - Blender and Cinema4D
+  - type: Development
+    skills:
+      - Javascript, Typescript
+      - HTML, CSS
+      - React, Bootstrap, and Svelte UI Frameworks
