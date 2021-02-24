@@ -3,7 +3,7 @@ extends /homepageLayout.pug
 include /mixins.pug
 
 block head
-  link(rel='stylesheet', href='/css/style.css' preload)
+  link(rel='stylesheet' href='/css/style.css' preload)
 
   style
     include ./css/vars.scss
@@ -17,7 +17,7 @@ block content
         g#lk.lk(visibility='visible'): +us('lock')
   //- Title
   include title.svg
-  script(defer, src='/scripts/pier.js', type='module')
+  script(defer, src='/scripts/pier.js' type='module')
 
   header#title
     h1.title Ruby Quail Design
@@ -47,6 +47,12 @@ block content
         a#li(href=g.linkedInUrl)
           +icon('linkedin','feather','')
           | &nbsp;LinkedIn
+        a#gh(href=g.ghUrl)
+          +icon('github','feather','')
+          | &nbsp;Github
+        a#cv(href="/documents/resume/")
+          +icon('file-text','feather','')
+          | &nbsp;CV
 
   //- Project List
 
