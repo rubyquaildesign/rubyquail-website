@@ -3,3 +3,7 @@ mixin icon(icon,svgClass,useId)
 
 mixin us(icon,id)
   use(xlink:href=`/icns/feather-sprite.svg#${icon}`, id=id)
+
+mixin link(src,label)
+  a(href=src)
+    =label

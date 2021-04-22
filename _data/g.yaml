@@ -9,3 +9,6 @@ resumeUrl: 'https://files.rubyquail.design/Ruby_Resume.pdf'
 blobUrl: 'https://files.rubyquail.design'
 ghUrl: 'https://github.com/Rupertofly'
 medUrl: 'https://rubyquaildesign.medium.com'
+links:
+  - title: 'My Article'
+    link: '/'

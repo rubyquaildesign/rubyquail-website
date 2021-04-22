@@ -1,0 +1,61 @@
+:root {
+  --font-family-base: Work Sans;
+  --font-size-base: 1.6rem;
+  --font-family-heading: Quicksand;
+  --color-text: #2c3137;
+  --color-bg: #95e0ec;
+  --color-blossom: #d34f73;
+  --color-link: #ab2f51;
+  --color-link-bg: #fafafa;
+  --color-fade: #f383a2;
+  --color-bg-alt: #ffeafd;
+  --color-bg-card: #fafafa;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #fafafa;
+    --color-bg: #2c3137;
+    --color-blossom: #fdbfcf;
+    --color-link: #fddfef;
+    --color-link-bg: #00404a55;
+    --color-fade: #f383a2;
+    --color-bg-alt: #ffeafd;
+    --color-bg-card: #01798c;
+    --link-bd: 0.25em;
+  }
+}
+h1 {
+  font-size: 2.35em;
+  font-weight: 700;
+}
+body {
+  background-color: var(--color-bg);
+  font-family: sans-serif;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70ch;
+  align-items: center;
+}
+
+body > a {
+  font-size: 1.2rem;
+  background-color: var(--color-bg-card);
+  color: var(--color-text);
+  padding: 0.5em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+  box-shadow: 0.3em 0.3em 0.2em #00000011;
+  width: clamp(0ch, 75ch, 80%);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-blossom);
+  border-bottom: 2px solid transparent;
+  transition: all 75ms;
+}
+body > a:hover {
+  color: var(--color-bg);
+  background-color: var(--color-blossom);
+}
