@@ -1,0 +1,91 @@
+experience:
+  - role: Service designer
+    company: Victoria Legal Aid
+    from: July 2020
+    to: Present
+    desc: 'Working as a service designer for the Digital Legal Aid team, to deliver digital products to aid VLA. Worked on CaPP, a green-fields case and client management system, as well as help before court, a recent, highly acclaimed public facing client intake service. Responsibilities include: developing both low and high fidelity wireframes and prototypes, user journey maps, service blueprints and other design artifacts, running co-design workshops, conducting user testing sessions, design discovery and identifying user needs through a variety of research methods, working in an agile environment with practioners from a variety of fields including business analysts, data analysts, developers, project managers, and of course legal practioners.'
+
+  - role: Contract design researcher
+    company: Paper Giant
+    from: Oct 2019
+    to: Dec 2019
+    desc: 'I worked as a design researcher on the LGBTIQ Legal Serivce website project with Paper Giant. Responsibilities include: designing and facilitating research and co-design workshops, synthesizing changes from user research, developing information architecture, wireframes, high fidelity prototypes.'
+
+  - role: Coles level 1 IT support
+    company: Probe
+    from: Jul 2019
+    to: Oct 2019
+    desc: 'Providing level one, IT support to Cole’s employees across various coles brands, including supermarkets and head office staff.'
+
+  - role: Studio Technician
+    company: RMIT University
+    from: Jul 2018
+    to: Dec 2018
+    desc: 'Maintained and helped students use studio equipment including 3D and traditional printers and soldering stations.'
+
+  - role: Gender Diverse Consultant
+    company: Escape Velocity Project (Collaboration between Minus18 and St Martins youth theatre)
+    from: Jun 2018
+    to: Aug 2019
+    desc: 'Worked with young gender diverse people to help develop and produce a digital campaign to raise awareness around difficulties trans and gender diverse people experience in accessing public services and exisiting in public spaces.'
+
+  - role: Event Staff
+    company: RMIT University
+    from: Mar 2018
+    to: Dec 2018
+    desc: 'Was involved with ticketing, bump-in, bump- out, explaining RMIT’s creative student programs, and directing students to support. Also bartending and ticket sales for RMIT Gallery events.'
+
+  - role: Committee member
+    company: Service Design Melbourne design and ethics comittee
+    from: Jan 2019
+    to: Present
+    desc: "I'm part of the design and ethics committee for 2019, helping develop and facilitate discussions and workshops with practioners on the intersections between industry and practice, and the ethical areas we deal with."
+
+  - role: Organiser
+    company: Trans and Gender diverse in Tech slack group
+    from: Jan 2019
+    to: Present
+    desc: 'TGD in Tech is a community for transgender and gender diverse people who work in technology and creative industries. It’s a place to amplify and encourage one another, share our work, build networks and also to give and receive support.'
+  - role: Organisational comittee for Civic makers meetup
+    company: Code for Australia
+    from: Jan 2019
+    to: Dec 2019
+    desc: 'Helped organise and faciliate the civic makers meetup which is a collection of practioners from various fields who have a keen interest in grassroots design and improving civic services.'
+
+education:
+  - to: Dec 2018
+    from: Mar 2014
+    qual: Bachelor of Industrial Design Honours
+    org: RMIT University
+    desc: 'Graduated with first class honours. Specialised in conceptual design, service design, digital interaction design, human computer interface design, systems design and inclusive human centred product design.'
+  - to: Dec 2013
+    from: Jan 2013
+    qual: Certificate IV in Screen and Media
+    org: Eltham College
+    desc: 'Film planning, production, and editing.'
+
+skills:
+  - type: Social
+    skills:
+      - Diverse communicator
+      - Co-design
+      - Leadership and team management
+      - User testing
+  - type: Organisational
+    skills:
+      - Works well in teams and independantly
+      - Critical thinker and problem solver
+      - Familiar with design thinking and agile methods
+  - type: Software
+    skills:
+      - Adobe Creative Suite (Illustrator, Animate, InDesign, Photoshop, After Effects, Premiere Pro, XD)
+      - Sketch
+      - Figma
+      - Rhino, Solidworks, Fusion 360
+      - Blender and Cinema4D
+  - type: Development
+    skills:
+      - Javascript, Typescript
+      - HTML, CSS
+      - React, Bootstrap, and Svelte UI Frameworks
+      - Some SQL and backend web development knowledge
