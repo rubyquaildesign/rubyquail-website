@@ -140,12 +140,30 @@ a {
   }
 }
 #projects > section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(24em, 1fr));
-  column-gap: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  & > * {
+    max-width: 45%;
+  }
+  & > .proj-icon {
+    max-height: 800px;
+  }
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    & > * {
+      max-width: 100%;
+    }
+    & > .proj-icon {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 .proj-icon {
-  max-height: auto;
+  width: 100%;
   justify-self: center;
   margin-top: 3rem;
   display: block;
