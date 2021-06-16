@@ -32,3 +32,12 @@ header > svg {
   height: 30vw;
   float: left;
 }
+a {
+  border: 0;
+  &:hover {
+    border: 0;
+  }
+}
+figcaption {
+  text-align: center;
+}
