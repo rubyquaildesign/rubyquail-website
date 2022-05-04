@@ -10,7 +10,8 @@
     "jstransformer-markdown-it": "^2.1.0",
     "lodash": "^4.17.20",
     "pug-lint-config-clock": "^2.0.0",
-    "rollup": "^2.71.1"
+    "rollup": "^2.71.1",
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
