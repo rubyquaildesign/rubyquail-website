@@ -6,24 +6,20 @@
   "author": "Ruby Quail <ruby@rubyquail.design>",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
-    "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
-    "eleventy-plugin-sass": "^1.1.1",
-    "feather-icons": "^4.28.0",
+    "@rollup/plugin-typescript": "^8.3.2",
     "jstransformer-markdown-it": "^2.1.0",
     "lodash": "^4.17.20",
-    "pug-lint-config-clock": "^2.0.0"
+    "pug-lint-config-clock": "^2.0.0",
+    "rollup": "^2.71.1"
   },
   "dependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "js-yaml": "^3.14.0",
-    "markdown-it-implicit-figures": "^0.10.0",
-    "node-sass": "^5.0.0",
-    "sass": "^1.28.0",
-    "simplex-noise": "^2.4.0",
-    "toml": "^3.0.0"
+    "sass": "^1.51.0",
+    "simplex-noise": "^2.4.0"
   },
   "scripts": {
-    "build": "tsc; eleventy --config=.eleventy.js",
+    "build": "eleventy --config=.eleventy.js; rollup -c",
     "serve": "npx @11ty/eleventy --config=.eleventy.js --serve",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --config=.eleventy.js --serve"
   },
