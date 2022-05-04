@@ -14,7 +14,7 @@ module.exports = (eleventyConfig) => {
 
       const parsed = path.parse(inputPath)
       let result = sass.compileString(inputContent, {
-        loadPaths:[parsed.dir ?? '.',this.config.dir.includes]
+        loadPaths:[parsed.dir || '.',this.config.dir.includes]
       });
       return async (data) => result.css
     }
