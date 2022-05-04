@@ -58,7 +58,7 @@ const nightModeSwitch = (document.getElementById('nm-switch').onclick = () => {
     .setAttributeNS(
       'http://www.w3.org/1999/xlink',
       'href',
-      `/icns/feather-sprite.svg#${vl === 'dark' ? 'moon' : 'sun'}`
+      `/icons/feather-sprite.svg#${vl === 'dark' ? 'moon' : 'sun'}`
   );
   document.body.classList.remove('dark','light')
   mode !== 'dynamic' && document.body.classList.add(vl)
