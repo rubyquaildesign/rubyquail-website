@@ -18,7 +18,7 @@ if (document.readyState === 'complete') {
     .setAttributeNS(
       'http://www.w3.org/1999/xlink',
       'href',
-      `/icns/feather-sprite.svg#${value === 'dark' ? 'moon' : 'sun'}`
+      `/icons/feather-sprite.svg#${value === 'dark' ? 'moon' : 'sun'}`
     );
 } else {
   document.onreadystatechange = () => {
@@ -29,7 +29,7 @@ if (document.readyState === 'complete') {
         .setAttributeNS(
           'http://www.w3.org/1999/xlink',
           'href',
-          `/icns/feather-sprite.svg#${value === 'dark' ? 'moon' : 'sun'}`
+          `/icons/feather-sprite.svg#${value === 'dark' ? 'moon' : 'sun'}`
         );
     }
   };
