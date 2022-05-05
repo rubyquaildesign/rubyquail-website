@@ -6,11 +6,13 @@
   "author": "Ruby Quail <ruby@rubyquail.design>",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "jstransformer-markdown-it": "^2.1.0",
     "lodash": "^4.17.20",
     "pug-lint-config-clock": "^2.0.0",
     "rollup": "^2.71.1",
+    "rollup-plugin-svelte": "^7.1.0",
     "typescript": "^4.6.4"
   },
   "dependencies": {
@@ -18,11 +20,12 @@
     "js-yaml": "^3.14.0",
     "sass": "^1.51.0",
     "simplex-noise": "^2.4.0",
+    "svelte": "^3.48.0",
     "tslib": "^2.4.0"
   },
   "scripts": {
     "build": "eleventy --config=.eleventy.js; rollup -c",
-    "serve": "npx @11ty/eleventy --config=.eleventy.js --serve",
+    "serve": "npx @11ty/eleventy --config=.eleventy.js --serve;",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --config=.eleventy.js --serve"
   },
   "prettier": {
