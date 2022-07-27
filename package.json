@@ -1,35 +1,37 @@
 {
-  "name": "rupertofly.github.io",
-  "version": "1.0.0",
-  "main": "index.pug",
-  "repository": "git@github.com:Rupertofly/rupertofly.github.io.git",
-  "author": "Ruby Quail <ruby@rubyquail.design>",
-  "license": "MIT",
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.2",
-    "jstransformer-markdown-it": "^2.1.0",
-    "lodash": "^4.17.20",
-    "pug-lint-config-clock": "^2.0.0",
-    "rollup": "^2.71.1",
-    "rollup-plugin-svelte": "^7.1.0",
-    "typescript": "^4.6.4"
-  },
-  "dependencies": {
-    "@11ty/eleventy": "^1.0.1",
-    "js-yaml": "^3.14.0",
-    "sass": "^1.51.0",
-    "simplex-noise": "^2.4.0",
-    "svelte": "^3.48.0",
-    "tslib": "^2.4.0"
-  },
-  "scripts": {
-    "build": "eleventy --config=.eleventy.js",
-    "serve": "npx @11ty/eleventy --config=.eleventy.js --serve;",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy --config=.eleventy.js --serve"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  }
+	"name": "rupertofly.github.io",
+	"version": "1.0.0",
+	"repository": "git@github.com:Rupertofly/rupertofly.github.io.git",
+	"author": "Ruby Quail <ruby@rubyquail.design>",
+	"license": "MIT",
+	"devDependencies": {
+		"@astrojs/image": "^0.2.0",
+		"@astrojs/mdx": "^0.3.0",
+		"@astrojs/svelte": "^0.5.0",
+		"@julian_cataldo/astro-seo": "^0.12.1",
+		"astro": "1.0.0-rc.1",
+		"image-size": "^1.0.2",
+		"sharp": "^0.30.7",
+		"svelte": "^3.46.4",
+		"typescript": "^4.6.4",
+		"vite-tsconfig-paths": "^3.5.0",
+		"xo": "^0.51.0"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "^1.0.1",
+		"cssmin": "^0.4.3",
+		"js-yaml": "^3.14.0",
+		"rubys-xo-settings": "github:rubyquaildesign/rubys-xo-settings",
+		"sass": "^1.51.0",
+		"simplex-noise": "^2.4.0",
+		"toml": "^3.0.0",
+		"tslib": "^2.4.0"
+	},
+	"scripts": {
+		"build": "astro build",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"preview": "astro preview",
+		"debug": "DEBUG=Eleventy* npx @11ty/eleventy --config=.eleventy.cjs --serve"
+	}
 }

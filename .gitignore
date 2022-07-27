@@ -2,5 +2,6 @@
 *.css.map
 node_modules
 _site
+dist
 _includes/**/*.js
 .Ulysses-Settings.plist
