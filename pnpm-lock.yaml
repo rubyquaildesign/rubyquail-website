@@ -17,7 +17,7 @@ specifiers:
   image-size: ^1.0.2
   js-yaml: ^3.14.0
   rollup: ^2.77.2
-  rubys-xo-settings: github:rubyquaildesign/rubys-xo-settings
+  rubys-xo-settings: rubyquaildesign/rubys-xo-settings
   sass: ^1.54.0
   sharp: ^0.30.7
   shiki: ^0.10.1
@@ -41,7 +41,6 @@ dependencies:
   astro-icon: 0.7.3
   cssmin: 0.4.3
   js-yaml: 3.14.1
-  rubys-xo-settings: github.com/rubyquaildesign/rubys-xo-settings/451a00e34360b17bdbe97d2de127fa342469c407_xo@0.51.0
   sass: 1.54.0
   shiki: 0.10.1
   simplex-noise: 2.4.0
@@ -49,6 +48,9 @@ dependencies:
   toml: 3.0.0
   tslib: 2.4.0
   vite-plugin-toml: 0.4.0_rollup@2.77.2
+
+optionalDependencies:
+  rubys-xo-settings: github.com/rubyquaildesign/rubys-xo-settings/451a00e34360b17bdbe97d2de127fa342469c407_xo@0.51.0
 
 devDependencies:
   '@astrojs/image': 0.2.0
@@ -7522,3 +7524,4 @@ packages:
     dependencies:
       xo: 0.51.0
     dev: false
+    optional: true
