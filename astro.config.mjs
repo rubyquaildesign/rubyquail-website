@@ -5,7 +5,6 @@ import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
 import { tomlConvert } from './tomlPlugin/index.js';
 
-console.log(import.meta);
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://rubyquail.design',
