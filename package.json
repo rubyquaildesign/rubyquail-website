@@ -25,6 +25,9 @@
 		"vite-tsconfig-paths": "^3.5.0",
 		"xo": "^0.51.0"
 	},
+	"optionalDependencies": {
+		"rubys-xo-settings": "rubyquaildesign/rubys-xo-settings"
+	},
 	"dependencies": {
 		"@11ty/eleventy": "^1.0.1",
 		"@fontsource/quicksand": "^4.5.10",
@@ -32,7 +35,6 @@
 		"astro-icon": "^0.7.3",
 		"cssmin": "^0.4.3",
 		"js-yaml": "^3.14.0",
-		"rubys-xo-settings": "github:rubyquaildesign/rubys-xo-settings",
 		"sass": "^1.54.0",
 		"shiki": "^0.10.1",
 		"simplex-noise": "^2.4.0",
