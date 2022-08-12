@@ -1,0 +1,10 @@
+[icons]
+carbon = [
+  'email',
+  'logo-twitter',
+  'logo-instagram',
+  'logo-linkedin',
+  'logo-github',
+  'document',
+  'logo-medium',
+]

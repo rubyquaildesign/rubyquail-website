@@ -1,19 +1,21 @@
-import Test from '../../_includes/components/test.svelte'
-import More from '../../_includes/components/more.svelte'
-
-function registerComponent(component, name) {
-
+import Test from '../../_includes/components/test.svelte';
+import More from '../../_includes/components/more.svelte';
+/* eslint no-new: "off" */
+/* eslint-disable no-undef  */
+function registerComponent(Component, name) {
   console.log(document.querySelectorAll(`.${name}`));
-  document.querySelectorAll(`.${CSS.escape(name)}`).forEach((element) => {
-    console.log(component,element);
+  for (const element of document.querySelectorAll(`.${CSS.escape(name)}`)) {
+    console.log(Component, element);
     const properties = JSON.parse(element.dataset.props);
-    new component({
+    new Component({
       target: element,
       props: properties,
-      hydrate:true
-    })
-  })
+      hydrate: true,
+    });
+  }
 }
+
 console.log('fml');
-registerComponent(Test,'svelte--test')
-registerComponent(More,'svelte--more')
+registerComponent(Test, 'svelte--test');
+registerComponent(More, 'svelte--more');
+/* eslint-enable no-undef */

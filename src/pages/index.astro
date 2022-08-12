@@ -1,0 +1,96 @@
+---
+import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+import { Image, Picture } from '@astrojs/image/components'
+import { Debug, Fragment } from 'astro/components';
+import { Content as Intro } from '../intro.md'
+// import data from '_data/data.toml?raw'
+import D from '../_data/data.json'
+import '@fontsource/quicksand';
+import '@fontsource/work-sans'
+import '../styles/home.scss'
+import IconButton from '_components/IconButton.astro';
+import pier from '../pier.svg?raw'
+const { Icon } = await import('astro-icon')
+const d = D;
+let iconSizes = [16, 32, 96];
+const ccs = await Astro.glob('../pages/**/*.md')
+---
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <SEO title="Ruby Quail Design" description={d.description}
+    image="https://files.rubyquail.design/portrait/portrait_square.jpg"
+    siteName="Ruby Quail Design" />
+  {iconSizes.map(sz => (
+  <link rel="icon" type="image/png" sizes={`${sz}x${sz}`} href={`/icons/logo${sz}.png`}>
+  ))}
+</head>
+
+<body>
+  <section class="aoc-container" style="display:none">
+    <p>Ruby would like to acknowledge the Traditional owners of the lands she works on, the
+      Wirrundjuri People of the Kulin Nations and would like to pay respects to their Elders both
+      past, present and emerging. </p>
+    <p>Sovereignty was never ceded, It was and always will be, Aboriginal land.</p>
+    <p><strong>Organisations you can pay the rent to:</strong></p>
+    <ul>
+      <li><a href="https://www.gofundme.com/f/bfvnvt-freethepeople" target="_blank">Sisters
+          Inside</a></li>
+      <li><a href="https://www.vals.org.au/donate/" target="_blank">Victorian Aboriginal Legal
+          Service</a></li>
+      <li><a href="https://blackrainbow.org.au/donate/" target="_blank">Black Rainbow</a></li>
+    </ul>
+    <button style="width: max-content;" id="close-aoc" disabled>Close</button>
+    <script>
+      import '../scripts/acknowledge-country'
+    </script>
+  </section>
+  <header set:html={pier} />
+  <script>
+    import '../scripts/pier'
+  </script>
+  <header class="card">
+    <h1 class="title">Ruby Quail Design</h1>
+    <div class="services">
+      <span class="service">Service</span>
+      <span class="service">Industrial</span>
+      <span class="service">Interaction</span>
+      <span class="service">System</span>
+    </div>
+  </header>
+  <section id="bio">
+    <Picture src='https://files.rubyquail.design/portrait/portrait_square.jpg' aspectRatio="1:1"
+      widths={[300,500,800]} sizes="(max-width: 800px) 100%, 800px" format={'png'} class="portrait"
+      alt="Portrait Photo of Ruby Quail with a pink tint applied" />
+    <div>
+      <Intro />
+      <nav id="socials">
+        <a href={d.mailUrl} id="em" class="button">
+          <Icon name="carbon:email" class="icon" />
+          Email
+        </a>
+        <IconButton id="twt" icon="carbon:logo-twitter" link={d.twitterUrl}>Twitter</IconButton>
+        <IconButton id="inst" icon="carbon:logo-instagram" link="001">Instagram</IconButton>
+        <IconButton id="lnin" icon="carbon:logo-linkedin" link={d.linkedInUrl}>LinkedIn</IconButton>
+        <IconButton id="gh" icon="carbon:logo-github" link={d.ghUrl}>Github</IconButton>
+        <IconButton id="med" icon="carbon:logo-medium" link={d.medUrl}>Medium</IconButton>
+      </nav>
+    </div>
+  </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    {ccs.map(t => {
+    const fm = t.frontmatter;
+    return (
+    <h3 set:text={fm.title} />
+    <p set:text={fm.desc} />
+    )
+    })}
+  </section>
+</body>
+
+</html>
