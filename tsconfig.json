@@ -13,8 +13,12 @@
 		"types": ["astro/client"],
 		// Tell TypeScript where your build output is
 		"outDir": "./dist",
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"strict": false,
-		"paths": { "_data": ["src/_data/g.toml"] }
+		"plugins": [{ "name": "typescript-plugin-toml" }],
+		"paths": {
+			"_data/*": ["src/_data/*"],
+			"_components/*": ["src/components/*"]
+		}
 	}
 }
