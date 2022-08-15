@@ -1,5 +1,6 @@
 const day = 60 * 60 * 24;
 function acknowledged() {
+	clearTimeout(backupTimeout);
 	const D = Date.now().toString(10);
 	localStorage.setItem('last-acknowledgement', D);
 	document.body.setAttribute('style', '');
@@ -10,11 +11,13 @@ function acknowledged() {
 	}, 300);
 }
 
+let backupTimeout: any;
 const la =
 	Number.parseInt(localStorage.getItem('last-acknowledgement'), 10) || 0;
 const offset = Date.now() - la;
 if (offset > day) {
 	document.body.setAttribute('style', 'overflow:hidden;');
+	window.scroll(0, 0);
 	const ct = document.querySelector('.aoc-container');
 	ct.setAttribute('style', '');
 	ct.addEventListener(
@@ -33,6 +36,9 @@ if (offset > day) {
 			acknowledged();
 		});
 	}, 3000);
+	backupTimeout = window.setTimeout(() => {
+		acknowledged();
+	}, 30_000);
 }
 
 export {};

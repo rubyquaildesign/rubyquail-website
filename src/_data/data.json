@@ -8,7 +8,7 @@
 	"instagramUrl": "https://instagram.com/rubyquaildesign",
 	"resumeUrl": "https://rubyquail.design/documents/cv",
 	"blobUrl": "https://files.rubyquail.design",
-	"ghUrl": "https://github.com/Rupertofly",
+	"ghUrl": "https://github.com/rubyquaildesign",
 	"medUrl": "https://rubyquaildesign.medium.com",
 	"links": [
 		{
@@ -39,5 +39,43 @@
 			"title": "Gender Diverse in Design - Recording",
 			"link": "https://vimeo.com/531495245"
 		}
-	]
+	],
+	"icons": {
+		"email": {
+			"id": "em",
+			"icon": "carbon:email",
+			"link": "mailto:enquiries@rubyquail.design",
+			"text": "Email"
+		},
+		"twitter": {
+			"id": "twt",
+			"icon": "carbon:logo-twitter",
+			"link": "https://twitter.com/RubyQuailDesign",
+			"text": "Twitter"
+		},
+		"insta": {
+			"id": "inst",
+			"icon": "carbon:logo-instagram",
+			"link": "https://instagram.com/rubyquaildesign",
+			"text": "Instagram"
+		},
+		"linkedin": {
+			"id": "lnin",
+			"icon": "carbon:logo-linkedin",
+			"link": "https://www.linkedin.com/in/rubyquail",
+			"text": "LinkedIn"
+		},
+		"github": {
+			"id": "gh",
+			"icon": "carbon:logo-github",
+			"link": "https://github.com/rubyquaildesign",
+			"text": "Github"
+		},
+		"medium": {
+			"id": "med",
+			"icon": "carbon:logo-medium",
+			"link": "https://rubyquaildesign.medium.com",
+			"text": "Medium"
+		}
+	}
 }

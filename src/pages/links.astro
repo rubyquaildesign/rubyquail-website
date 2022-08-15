@@ -1,0 +1,27 @@
+---
+import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+import '../styles/links.scss'
+import data from '_data/data.json'
+import '@fontsource/quicksand';
+import '@fontsource/work-sans'
+const links = data.links;
+---
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links</title>
+  <SEO title="Ruby Quail Design" description={data.description}
+    image="https://files.rubyquail.design/portrait/portrait_square.jpg"
+    siteName="Ruby Quail Design" />
+</head>
+
+<body>
+  <h1>Ruby's Links</h1>
+  {links.map(l => <a href={l.link}>{l.title}</a>)}
+</body>
+
+</html>
