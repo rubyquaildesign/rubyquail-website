@@ -1,9 +1,0 @@
-mixin icon(icon,svgClass,useId)
-  svg(class=svgClass): use(xlink:href=`/icons/feather-sprite.svg#${icon}`, id=useId)
-
-mixin us(icon,id)
-  use(xlink:href=`/icons/feather-sprite.svg#${icon}`, id=id)
-
-mixin link(src,label)
-  a(href=src)
-    =label

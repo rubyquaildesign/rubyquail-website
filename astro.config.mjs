@@ -15,7 +15,7 @@ export default defineConfig({
 			tomlConvert({ inputFolder: 'src/toml_data', outputFolder: 'src/_data' }),
 		],
 		ssr: {
-			// external: ['svgo'],
+			external: ['svgo'],
 			noExternal: ['@fontsource/quicksand', '@fontsource/work-sans'],
 		},
 	},

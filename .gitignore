@@ -5,3 +5,4 @@ _site
 dist
 _includes/**/*.js
 .Ulysses-Settings.plist
+.bak

@@ -1,5 +1,5 @@
 {
-	"name": "rupertofly.github.io",
+	"name": "rubyquail-website",
 	"version": "1.0.0",
 	"repository": "git@github.com:Rupertofly/rupertofly.github.io.git",
 	"author": "Ruby Quail <ruby@rubyquail.design>",
@@ -11,7 +11,7 @@
 		"@astrojs/svelte": "^0.5.0",
 		"@iconify/svelte": "^2.2.1",
 		"@julian_cataldo/astro-seo": "^0.12.1",
-		"astro": "1.0.0-rc.1",
+		"astro": "1.0.4",
 		"chokidar": "^3.5.3",
 		"github-slugger": "^1.4.0",
 		"image-size": "^1.0.2",
