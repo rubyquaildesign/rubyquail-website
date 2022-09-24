@@ -9,6 +9,7 @@ import '@fontsource/work-sans';
 import '../styles/home.scss';
 import IconButton from '_components/IconButton.astro';
 import Aoc from '_components/aoc.astro';
+import portrait from '../portrait.png';
 import pier from '../pier.svg?raw';
 const d = D;
 const socials = Object.values(D.icons);
@@ -55,7 +56,7 @@ const ccs = await Astro.glob('../pages/**/*.md');
 		</header>
 		<section id="bio">
 			<Picture
-				src="/portrait.png"
+				src={portrait}
 				aspectRatio="1:1"
 				widths={[300, 500, 800]}
 				sizes="(max-width: 800px) 100%, 800px"
