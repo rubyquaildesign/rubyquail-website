@@ -1,0 +1,25 @@
+@use './base';
+
+:root {
+  --color-bg: #fafafa;
+  --color-text: #0D0D0D;
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr 1.518fr;
+  gap: 2rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+h2,h3,h4 {
+  margin-bottom: 0.5rem;
+}
+aside {
+  background-color: #f384a2;
+  min-height: 100vh;
+  padding: 1em;
+}
+.work-entry {
+  margin-bottom: 2em;
+}
