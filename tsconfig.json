@@ -18,7 +18,10 @@
 		"plugins": [{ "name": "typescript-plugin-toml" }],
 		"paths": {
 			"_data/*": ["src/_data/*"],
-			"_components/*": ["src/components/*"]
+			"_styles/*": ["src/styles/*"],
+			"_components/*": ["src/components/*"],
+			"_layouts/*": ["src/layouts/*"],
+			"_markdown/*": ["src/markdown-data/*"]
 		}
 	}
 }

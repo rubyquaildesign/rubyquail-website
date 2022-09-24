@@ -1,0 +1,45 @@
+---
+import '_styles/cv.scss';
+import '@fontsource/quicksand';
+import '@fontsource/work-sans';
+import moment from 'moment';
+import WorkEntry from '_components/cv/WorkEntry.astro';
+console.log(moment.monthsShort());
+
+function momentize(s: string) {
+	if (s === 'Present') return moment(Date.now());
+	return moment(s, ['MMM YYYY', 'MMMM YYYY']);
+}
+const work = (await Astro.glob('/src/markdown-data/cv/work/*.md')).sort(
+	(a, b) => {
+		return (
+			momentize(b.frontmatter.to).unix() - momentize(a.frontmatter.to).unix()
+		);
+	},
+);
+const A = work[0].Content;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ruby Quail CV</title>
+	</head>
+	<body>
+		<aside></aside>
+		<main>
+			<h1>Ruby Quail CV</h1>
+			<h2>Work</h2>
+			{
+				work.map(md => {
+					return (
+						<WorkEntry entry={{ ...md.frontmatter, description: md.Content }} />
+					);
+				})
+			}
+		</main>
+	</body>
+</html>

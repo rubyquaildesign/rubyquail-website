@@ -1,18 +1,24 @@
-{% set css %}
-{% include "./links.css" %}
-{% endset %}
+---
+import '../styles/base.scss'
+import '@fontsource/quicksand';
+import '@fontsource/work-sans'
+const { frontmatter } = Astro.props;
+---
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruby Quail Links</title>
-  <style>
-    {{ css | safe }}
-  </style>
+  <title>{frontmatter.title}</title>
 </head>
+
 <body>
-  
+  <main>
+    <slot />
+  </main>
 </body>
+
 </html>

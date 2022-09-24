@@ -1,0 +1,47 @@
+---
+import type * as A from 'astro';
+
+type WorkEntry = {
+	role: string;
+	company: string;
+	from: string;
+	to: string;
+	description: A.ComponentInstance;
+	history?: { from: string; to: string; role: string }[];
+};
+export default interface Props {
+	entry: WorkEntry;
+}
+const {
+	role,
+	company,
+	from,
+	to,
+	history,
+	description: Desc,
+} = Astro.props.entry as WorkEntry;
+---
+
+<section class="work-entry">
+	<h3>{role}</h3>
+	<h4>{company}</h4>
+	<h4>{from} - {to}</h4>
+	{
+		history?.length > 0 ? (
+			<>
+				<h5>previously</h5>
+				{history.map(e => (
+					<>
+						<h5>{e.role}</h5>
+						<h6>
+							{e.from} - {e.to}
+						</h6>
+					</>
+				))}
+			</>
+		) : (
+			false
+		)
+	}
+	<Desc />
+</section>
