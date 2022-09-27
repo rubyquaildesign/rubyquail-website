@@ -1,0 +1,35 @@
+[[skills]]
+type = "Social"
+skills = [
+  "Diverse communicator",
+  "Co-design",
+  "Leadership and team management",
+  "User testing",
+]
+
+[[skills]]
+type = "Organisational"
+skills = [
+  "Works well in teams and independantly",
+  "Critical thinker and problem solver",
+  "Familiar with design thinking and agile methods",
+]
+
+[[skills]]
+type = "Software"
+skills = [
+  "Adobe Creative Suite (Illustrator, Animate, InDesign, Photoshop, After Effects, Premiere Pro, XD)",
+  "Sketch",
+  "Figma",
+  "Rhino, Solidworks, Fusion 360",
+  "Blender and Cinema4D",
+]
+
+[[skills]]
+type = "Development"
+skills = [
+  "Javascript, Typescript",
+  "HTML, CSS",
+  "React, Bootstrap, and Svelte UI Frameworks",
+  "Some SQL and backend web development knowledge",
+]
