@@ -6,10 +6,10 @@ type WorkEntry = {
 	company: string;
 	from: string;
 	to: string;
-	description: A.ComponentInstance;
+	description: A.MarkdownInstance<any>['Content'];
 	history?: { from: string; to: string; role: string }[];
 };
-export default interface Props {
+export interface Props {
 	entry: WorkEntry;
 }
 const {
@@ -29,13 +29,15 @@ const {
 	{
 		history?.length > 0 ? (
 			<>
-				<h5>previously</h5>
+				<span>
+					<em>previously</em>
+				</span>
 				{history.map(e => (
 					<>
-						<h5>{e.role}</h5>
-						<h6>
+						<h4>{e.role}</h4>
+						<h5>
 							{e.from} - {e.to}
-						</h6>
+						</h5>
 					</>
 				))}
 			</>

@@ -1,0 +1,35 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+	sourceGlob: string;
+	name: string;
+}
+
+const { sourceGlob, id, name } = Astro.props;
+import moment from 'moment';
+import WorkEntry from './_WorkEntry.astro';
+
+function momentize(s: string) {
+	if (s === 'Present') return moment(Date.now());
+	return moment(s, ['MMM YYYY', 'MMMM YYYY']);
+}
+const items = (await Astro.glob('/**/*.md'))
+	.filter(post => post.file.includes(sourceGlob))
+	.sort((a, b) => {
+		return (
+			momentize(b.frontmatter.to).unix() - momentize(a.frontmatter.to).unix()
+		);
+	});
+---
+
+<section>
+	<h2>{name}</h2>
+	{
+		items.map(md => {
+			return (
+				<WorkEntry
+					entry={{ ...md.frontmatter, description: md.Content } as any}
+				/>
+			);
+		})
+	}
+</section>
