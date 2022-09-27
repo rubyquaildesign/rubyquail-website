@@ -1,0 +1,85 @@
+---
+import Basic from '_layouts/Basic.astro';
+import '_styles/cv.scss';
+import * as description from '_markdown/cv/description.md';
+import moment from 'moment';
+import WorkList from './_WorkList.astro';
+import data from '_data/cv.json';
+import { Picture } from '@astrojs/image/components';
+import portrait from '../../resume_portrait.png';
+function momentize(s: string) {
+	if (s === 'Present') return moment(Date.now());
+	return moment(s, ['MMM YYYY', 'MMMM YYYY']);
+}
+const work = (await Astro.glob('/src/markdown-data/cv/work/*.md')).sort(
+	(a, b) => {
+		return (
+			momentize(b.frontmatter.to).unix() - momentize(a.frontmatter.to).unix()
+		);
+	},
+);
+const Desc = description.Content;
+---
+
+<Basic title="Ruby Quail CV">
+	<main>
+		<article>
+			<h2>
+				I design and build systems and tools that support the helpers and the
+				people they help
+			</h2>
+			<Desc />
+			<WorkList sourceGlob="/src/markdown-data/cv/work" name="Work" />
+			<WorkList sourceGlob="/src/markdown-data/cv/vol" name="Volunteering" />
+			<WorkList sourceGlob="/src/markdown-data/cv/education" name="Education" />
+		</article>
+		<aside>
+			<Picture
+				src={portrait}
+				widths={[400, 800, 1200]}
+				class="portrait"
+				aspectRatio="1:1"
+				sizes="(max-width: 800px) 100vw, 800px"
+				alt="A portrait photograph of Ruby Quail"
+			/>
+			<h1>Ruby Quail</h1>
+			<hr />
+			<table>
+				<tr
+					><td>Website:</td>
+					<td><a href="https://rubyquail.design">rubyquail.design</a></td>
+				</tr>
+				<tr
+					><td>Email:</td><td
+						><a href="mailto:enquiries@rubyquail.design"
+							>enquiries@rubyquail.design</a
+						>
+					</td>
+				</tr>
+			</table>
+			<p></p>
+			<h2>Skills</h2>
+			{
+				data.skills.map(skill => {
+					return (
+						<>
+							<h3>{skill.type}</h3>
+							<ul>
+								{skill.skills.map(sk => (
+									<li>{sk}</li>
+								))}
+							</ul>
+						</>
+					);
+				})
+			}
+		</aside>
+	</main>
+	<footer>
+		<p>
+			An accessible copy of this CV can be found at <a
+				href="https://rubyquail.design/cv">https://rubyquail.design/cv</a
+			>
+		</p>
+	</footer>
+</Basic>

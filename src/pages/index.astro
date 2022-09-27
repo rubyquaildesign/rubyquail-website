@@ -1,71 +1,68 @@
 ---
-import SEO from '@julian_cataldo/astro-seo/SEO.astro';
-import { Image, Picture } from '@astrojs/image/components'
-import { Debug } from 'astro/components';
-import { Content as Intro } from '../intro.md'
-import D from '../_data/data.json'
-import '@fontsource/quicksand';
-import '@fontsource/work-sans'
-import '../styles/home.scss'
+import { Picture } from '@astrojs/image/components';
+import { Content as Intro } from '../intro.md';
+import Layout from '_layouts/Basic.astro';
+import D from '../_data/data.json';
+import '../styles/home.scss';
 import IconButton from '_components/IconButton.astro';
-import Aoc from '_components/aoc.astro'
-import pier from '../pier.svg?raw'
-const d = D;
+import Aoc from '_components/aoc.astro';
+import portrait from '../portrait.png';
+import pier from '../pier.svg?raw';
 const socials = Object.values(D.icons);
 let iconSizes = [16, 32, 96];
-const ccs = await Astro.glob('../pages/**/*.md')
+const ccs = await Astro.glob('../pages/**/*.md');
 ---
 
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <SEO title="Ruby Quail Design" description={d.description}
-    image="https://files.rubyquail.design/portrait/portrait_square.jpg"
-    siteName="Ruby Quail Design" />
-  {iconSizes.map(sz =>
-  <link rel="icon" type="image/png" sizes={`${sz}x${sz}`} href={`/icons/logo${sz}.png`}>)}
-</head>
-
-<body>
-  <Aoc />
-  <header set:html={pier} />
-  <script>
-    import '../scripts/pier'
-  </script>
-  <header class="card">
-    <h1 class="title">Ruby Quail Design</h1>
-    <div class="services">
-      <span class="service">Service</span>
-      <span class="service">Industrial</span>
-      <span class="service">Interaction</span>
-      <span class="service">System</span>
-    </div>
-  </header>
-  <section id="bio">
-    <Picture src='https://files.rubyquail.design/portrait/portrait_square.jpg' aspectRatio="1:1"
-      widths={[300,500,800]} sizes="(max-width: 800px) 100%, 800px" format={'png'} class="portrait"
-      alt="Portrait Photo of Ruby Quail with a pink tint applied" />
-    <div>
-      <Intro />
-      <nav id="socials">
-        {socials.map(ic => <IconButton icon={ic.icon} link={ic.link} id={ic.id}>{ic.text}
-        </IconButton>)}
-      </nav>
-    </div>
-  </section>
-  <section id="projects">
-    <h2>Projects</h2>
-    {ccs.map(t => {
-    const fm = t.frontmatter;
-    return (
-    <h3 set:text={fm.title} />
-    <p set:text={fm.desc} />
-    )
-    })}
-  </section>
-</body>
-
-</html>
+<Layout title="Ruby Quail Design">
+	<Aoc />
+	<header set:html={pier}></header>
+	<script>
+		import '../scripts/pier';
+	</script>
+	<header class="card">
+		<h1 class="title">Ruby Quail Design</h1>
+		<div class="services">
+			<span class="service">Service</span>
+			<span class="service">Industrial</span>
+			<span class="service">Interaction</span>
+			<span class="service">System</span>
+		</div>
+	</header>
+	<section id="bio">
+		<Picture
+			src={portrait}
+			aspectRatio="1:1"
+			widths={[300, 500, 800]}
+			sizes="(max-width: 800px) 100%, 800px"
+			format={'png'}
+			class="portrait"
+			alt="Portrait Photo of Ruby Quail with a pink tint applied"
+		/>
+		<div>
+			<Intro />
+			<nav id="socials">
+				{
+					socials.map(ic => (
+						<IconButton icon={ic.icon} link={ic.link} id={ic.id}>
+							{ic.text}
+						</IconButton>
+					))
+				}
+			</nav>
+		</div>
+	</section>
+	<section id="projects">
+		<h2>Projects</h2>
+		{
+			ccs.map(t => {
+				const fm = t.frontmatter;
+				return (
+					<>
+						<h3 set:text={fm.title} />
+						<p set:text={fm.desc} />
+					</>
+				);
+			})
+		}
+	</section>
+</Layout>

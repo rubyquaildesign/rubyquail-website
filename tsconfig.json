@@ -14,11 +14,15 @@
 		// Tell TypeScript where your build output is
 		"outDir": "./dist",
 		"baseUrl": ".",
+		"importsNotUsedAsValues": "error",
 		"strict": false,
 		"plugins": [{ "name": "typescript-plugin-toml" }],
 		"paths": {
 			"_data/*": ["src/_data/*"],
-			"_components/*": ["src/components/*"]
+			"_styles/*": ["src/styles/*"],
+			"_components/*": ["src/components/*"],
+			"_layouts/*": ["src/layouts/*"],
+			"_markdown/*": ["src/markdown-data/*"]
 		}
 	}
 }
