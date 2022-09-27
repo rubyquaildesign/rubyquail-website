@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 // Replace `astro/client` with `@astrojs/image/client`
-/// <reference types="@astrojs/image" />
+/// <reference types="@astrojs/image/client" />
 /// <reference types="astro/client" />
 interface ImportMetaEnv {
 	readonly DB_PASSWORD: string;
