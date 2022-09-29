@@ -1,5 +1,8 @@
 @use './base';
 
+section {
+  margin: 3em 0;
+}
 section, .card {
   background-color: var(--color-card-bg);
   padding: 2em;

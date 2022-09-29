@@ -1,13 +1,17 @@
 ---
 import type * as A from 'astro';
-
+import type moment from 'moment';
 type WorkEntry = {
 	role: string;
 	company: string;
-	from: string;
-	to: string;
+	from: moment.Moment;
+	to: moment.Moment | 'Present';
 	description: A.MarkdownInstance<any>['Content'];
-	history?: { from: string; to: string; role: string }[];
+	history?: {
+		from: moment.Moment;
+		to: moment.Moment | 'Present';
+		role: string;
+	}[];
 };
 export interface Props {
 	entry: WorkEntry;
@@ -20,30 +24,40 @@ const {
 	history,
 	description: Desc,
 } = Astro.props.entry as WorkEntry;
+function createWorkDuration(
+	from: moment.Moment,
+	to: moment.Moment | 'Present',
+) {
+	return to === 'Present'
+		? `Since ${from.format('MMMM YYYY')}`
+		: `From ${from.format('MMMM YYYY')} till ${to.format('MMMM YYYY')}`;
+}
 ---
 
-<section class="work-entry">
+<section class="work-entry entry">
 	<h3>{role}</h3>
-	<h4>{company}</h4>
-	<h4>{from} - {to}</h4>
-	{
-		history?.length > 0 ? (
-			<>
-				<span>
-					<em>previously</em>
-				</span>
-				{history.map(e => (
-					<>
-						<h4>{e.role}</h4>
-						<h5>
-							{e.from} - {e.to}
-						</h5>
-					</>
-				))}
-			</>
-		) : (
-			false
-		)
-	}
-	<Desc />
+	<div class="entry-info">
+		<h4>{company}</h4>
+		<p>{createWorkDuration(from, to)}</p>
+		{
+			history?.length > 0 ? (
+				<>
+					<span>
+						<em>previously</em>
+					</span>
+					{history.map(e => (
+						<>
+							<h4>{e.role}</h4>
+							<p>{createWorkDuration(e.from, e.to)}</p>
+						</>
+					))}
+				</>
+			) : (
+				false
+			)
+		}
+	</div>
+	<div class="entry-desc">
+		<Desc />
+	</div>
 </section>
