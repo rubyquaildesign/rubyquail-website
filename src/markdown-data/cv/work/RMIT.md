@@ -5,4 +5,5 @@ from: Jul 2018
 to: Dec 2018
 ---
 
-Maintained and helped students use studio equipment including 3D and traditional printers and soldering stations.
+- Maintained and repeated 3D printers and Soldering stations
+- Helped Students with preparing models for printing, using the printers themselves, and managing their expectations.
