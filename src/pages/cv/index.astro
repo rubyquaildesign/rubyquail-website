@@ -66,22 +66,27 @@ const Desc = description.Content;
 			<WorkList sourceGlob="/src/markdown-data/cv/work" name="Work" />
 			<WorkList sourceGlob="/src/markdown-data/cv/vol" name="Volunteering" />
 			<WorkList sourceGlob="/src/markdown-data/cv/education" name="Education" />
-			<h2>Skills</h2>
+			<section class="skills">
+				<h2>Skills</h2>
+				<div class="content">
+					{
+						data.skills.map(skill => {
+							return (
+								<div class="skill-section">
+									<h3>{skill.type}</h3>
+									<ul>
+										{skill.skills.map(sk => (
+											<li>{sk}</li>
+										))}
+									</ul>
+								</div>
+							);
+						})
+					}
+				</div>
+			</section>
+			<h2>About Me</h2>
 			<Desc />
-			{
-				data.skills.map(skill => {
-					return (
-						<>
-							<h3>{skill.type}</h3>
-							<ul>
-								{skill.skills.map(sk => (
-									<li>{sk}</li>
-								))}
-							</ul>
-						</>
-					);
-				})
-			}
 		</article>
 	</main>
 	<footer>
