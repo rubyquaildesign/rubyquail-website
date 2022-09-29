@@ -27,7 +27,25 @@ const items = (await Astro.glob('/**/*.md'))
 		items.map(md => {
 			return (
 				<WorkEntry
-					entry={{ ...md.frontmatter, description: md.Content } as any}
+					entry={
+						{
+							...md.frontmatter,
+							description: md.Content,
+							from: moment(md.frontmatter.from, ['MMM YYYY', 'MMMM YYYY']),
+							to:
+								md.frontmatter.to === 'Present'
+									? 'Present'
+									: moment(md.frontmatter.to, ['MMM YYYY', 'MMMM YYYY']),
+							history: md.frontmatter.history?.map(h => ({
+								...h,
+								from: moment(h.from, ['MMM YYYY', 'MMMM YYYY']),
+								to:
+									md.frontmatter.to === 'Present'
+										? 'Present'
+										: moment(h.to, ['MMM YYYY', 'MMMM YYYY']),
+							})),
+						} as any
+					}
 				/>
 			);
 		})
