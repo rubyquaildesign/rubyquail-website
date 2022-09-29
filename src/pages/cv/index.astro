@@ -1,6 +1,7 @@
 ---
 import Basic from '_layouts/Basic.astro';
 import '_styles/cv.scss';
+import * as AI from 'astro-icon';
 import * as description from '_markdown/cv/description.md';
 import moment from 'moment';
 import WorkList from './_WorkList.astro';
@@ -22,58 +23,71 @@ const Desc = description.Content;
 ---
 
 <Basic title="Ruby Quail CV">
-	<main>
-		<article>
-			<h2>
+	<header>
+		<Picture
+			src={portrait}
+			widths={[400, 800, 1200]}
+			class="portrait"
+			aspectRatio="1:1"
+			sizes="(max-width: 800px) 100vw, 800px"
+			alt="A portrait photograph of Ruby Quail"
+		/>
+		<div class="info">
+			<h1>Ruby Quail</h1>
+			<h3>
 				I design and build systems and tools that support the helpers and the
 				people they help
-			</h2>
-			<Desc />
+			</h3>
+			<nav class="links">
+				<a href="https://rubyquail.design" class="social-link">
+					<AI.Icon name="iconoir:internet" class="icon" />
+					<span>https://rubyquail.design</span>
+				</a><a href="https://github.com/rubyquaildesign" class="social-link"
+					><AI.Icon name="carbon:logo-github" class="icon" />
+					<span>rubyquaildesign</span>
+				</a>
+				<a href="https://www.linkedin.com/in/rubyquail" class="social-link"
+					><AI.Icon name="carbon:logo-linkedin" class="icon" />
+					<span>/rubyquail</span>
+				</a>
+				<a href="https://twitter.com/RubyQuailDesign" class="social-link"
+					><AI.Icon name="carbon:logo-twitter" class="icon" />
+					<span>@rubyquaildesign</span>
+				</a>
+				<a href="mailto:enquiries@rubyquail.design" class="social-link"
+					><AI.Icon name="carbon:email" class="icon" />
+					<span>enquiries@rubyquail.design</span>
+				</a>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<article>
 			<WorkList sourceGlob="/src/markdown-data/cv/work" name="Work" />
 			<WorkList sourceGlob="/src/markdown-data/cv/vol" name="Volunteering" />
 			<WorkList sourceGlob="/src/markdown-data/cv/education" name="Education" />
+			<section class="skills">
+				<h2>Skills</h2>
+				<div class="content">
+					{
+						data.skills.map(skill => {
+							return (
+								<div class="skill-section">
+									<h3>{skill.type}</h3>
+									<ul>
+										{skill.skills.map(sk => (
+											<li>{sk}</li>
+										))}
+									</ul>
+								</div>
+							);
+						})
+					}
+				</div>
+			</section>
+			<h2>About Me</h2>
+			<Desc />
 		</article>
-		<aside>
-			<Picture
-				src={portrait}
-				widths={[400, 800, 1200]}
-				class="portrait"
-				aspectRatio="1:1"
-				sizes="(max-width: 800px) 100vw, 800px"
-				alt="A portrait photograph of Ruby Quail"
-			/>
-			<h1>Ruby Quail</h1>
-			<hr />
-			<table>
-				<tr
-					><td>Website:</td>
-					<td><a href="https://rubyquail.design">rubyquail.design</a></td>
-				</tr>
-				<tr
-					><td>Email:</td><td
-						><a href="mailto:enquiries@rubyquail.design"
-							>enquiries@rubyquail.design</a
-						>
-					</td>
-				</tr>
-			</table>
-			<p></p>
-			<h2>Skills</h2>
-			{
-				data.skills.map(skill => {
-					return (
-						<>
-							<h3>{skill.type}</h3>
-							<ul>
-								{skill.skills.map(sk => (
-									<li>{sk}</li>
-								))}
-							</ul>
-						</>
-					);
-				})
-			}
-		</aside>
 	</main>
 	<footer>
 		<p>
