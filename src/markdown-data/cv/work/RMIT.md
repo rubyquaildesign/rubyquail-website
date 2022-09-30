@@ -5,5 +5,5 @@ from: Jul 2018
 to: Dec 2018
 ---
 
-- Maintained and repeated 3D printers and Soldering stations
+- Maintained and repaired 3D printers and soldering stations
 - Helped Students with preparing models for printing, using the printers themselves, and managing their expectations.
