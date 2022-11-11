@@ -74,3 +74,21 @@ id = "med"
 icon = "carbon:logo-medium"
 link = "https://rubyquaildesign.medium.com"
 text = "Medium"
+
+[icons.mastodon]
+id = "mdn"
+icon = "simple-icons:mastodon"
+link = "https://mastodon.lol/@quail"
+text = "Mastodon"
+
+[icons.cohost]
+id = "cohost"
+icon = "fluent:oval-24-filled"
+link = "https://cohost.org/quail"
+text = "Cohost"
+
+[icons.tumblr]
+id = "tmblr"
+icon = "carbon:logo-tumblr"
+link = "https://felathea.tumblr.com"
+text = "Tumblr"
