@@ -76,6 +76,24 @@
 			"icon": "carbon:logo-medium",
 			"link": "https://rubyquaildesign.medium.com",
 			"text": "Medium"
+		},
+		"mastodon": {
+			"id": "mdn",
+			"icon": "simple-icons:mastodon",
+			"link": "https://mastodon.lol/@quail",
+			"text": "Mastodon"
+		},
+		"cohost": {
+			"id": "cohost",
+			"icon": "fluent:oval-24-filled",
+			"link": "https://cohost.org/quail",
+			"text": "Cohost"
+		},
+		"tumblr": {
+			"id": "tmblr",
+			"icon": "carbon:logo-tumblr",
+			"link": "https://felathea.tumblr.com",
+			"text": "Tumblr"
 		}
 	}
 }
