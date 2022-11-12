@@ -2,14 +2,20 @@
 import * as AI from 'astro-icon';
 
 export interface Props {
-  icon: string
-  id: string;
-  link: string;
+	icon: string;
+	id: string;
+	link: string;
 }
-const { icon, id, link } = Astro.props as Props
+const { icon, id, link } = Astro.props as Props;
 ---
 
-<a href={link} id={id} target="_blank" rel="external noreferrer" class="button">
-  <AI.Icon name={icon} class="icon" />
-  <slot />
+<a
+	href={link}
+	id={id}
+	target="_blank"
+	rel="external noreferrer me"
+	class="button"
+>
+	<AI.Icon name={icon} class="icon" />
+	<slot />
 </a>
