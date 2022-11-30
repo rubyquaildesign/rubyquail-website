@@ -88,12 +88,6 @@
 			"icon": "fluent:oval-24-filled",
 			"link": "https://cohost.org/quail",
 			"text": "Cohost"
-		},
-		"tumblr": {
-			"id": "tmblr",
-			"icon": "carbon:logo-tumblr",
-			"link": "https://felathea.tumblr.com",
-			"text": "Tumblr"
 		}
 	}
 }
