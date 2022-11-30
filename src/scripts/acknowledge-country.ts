@@ -35,10 +35,10 @@ if (offset > day) {
 		close.addEventListener('click', () => {
 			acknowledged();
 		});
-	}, 3000);
+	}, 500);
 	backupTimeout = window.setTimeout(() => {
 		acknowledged();
-	}, 30_000);
+	}, 5000);
 }
 
 export {};
