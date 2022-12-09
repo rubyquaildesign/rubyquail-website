@@ -20,8 +20,8 @@ $color-bg: $black;
 $color-card-bg: $dark-grey;
 $color-button: $medium-red;
 $color-button-text: $pure-white;
-:root {
-  --color-bg: #21252B;
+:root.article {
+  --color-bg: #{$dark-grey};
   @media print, (prefers-color-scheme: light) {
     font-size: 12pt;
     --color-text: #{$dark-grey};
