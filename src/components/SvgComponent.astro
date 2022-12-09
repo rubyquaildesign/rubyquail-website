@@ -1,0 +1,50 @@
+---
+import { optimize } from 'svgo';
+import { DOMParser } from 'linkedom';
+import Path from 'path';
+interface HrefProps {
+	href: string;
+	title: string;
+	desc?: string;
+}
+interface SrcProps {
+	src: string;
+	title: string;
+	desc?: string;
+}
+export type Props = HrefProps | SrcProps;
+const { title, desc } = Astro.props;
+let { href, src } = Astro.props;
+if (href) {
+	const e = import.meta.glob('/**/*.svg', { as: 'raw', eager: true });
+	const a = Object.entries(e).find(([path]) => path.includes(href));
+	if (!a) {
+		throw new Error(`couldn't find ${href}`);
+	}
+	src = a[1];
+}
+const t = optimize(src, {
+	plugins: [
+		{
+			name: 'preset-default',
+			params: { overrides: { cleanupIDs: false, removeViewBox: false } },
+		},
+		'removeDimensions',
+	],
+});
+const loadSucceeded = 'data' in t;
+if (!loadSucceeded) {
+	console.log(t.modernError);
+	throw new Error(t.error);
+}
+const svgText = t.data;
+const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+const titleElem = doc.createElement('title');
+const descElem = doc.createElement('desc');
+titleElem.textContent = title;
+descElem.textContent = desc ?? title;
+doc.documentElement.prepend(titleElem, descElem);
+const output = doc.toString();
+---
+
+<Fragment set:html={output} />

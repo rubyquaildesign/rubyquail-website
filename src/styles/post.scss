@@ -1,0 +1,47 @@
+@use './base.scss';
+$desktop-font-size: 24px;
+$mobile-font-size: 12px;
+$print-font-size: 12pt;
+$white: #e0e0e0;
+$grey: #c6ccd7;
+$light-red: #F384A2;
+$medium-red: #D34F73;
+$dark-red:#AB2F51;
+$darker-red: #8a0f30;
+$dark-grey:#21252B;
+$black:#0D1117;
+$pure-white:#fff;
+$pure-black:#000;
+$body-font: Work Sans ;
+$heading-font: Quicksand;
+$color-text: $grey;
+$color-bold: $light-red;
+$color-bg: $black;
+$color-card-bg: $dark-grey;
+$color-button: $medium-red;
+$color-button-text: $pure-white;
+:root {
+  --color-bg: #21252B;
+  @media print, (prefers-color-scheme: light) {
+    font-size: 12pt;
+    --color-text: #{$dark-grey};
+    --color-heading: #{$dark-red};
+    --color-heading-subtle: #{$medium-red};
+    --color-bg: #{$grey};
+    --color-card-bg: #{$white};
+    --color-bold: #{$dark-red};
+    color: var(--color-text);
+  }
+}
+
+.post-nav {
+
+  padding: 2em 0em;
+  width: 100%;
+  display: flex;
+  gap:3em;
+  align-items: center;
+}
+strong {
+  font-weight: 600;
+}
