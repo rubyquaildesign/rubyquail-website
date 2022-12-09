@@ -37,7 +37,7 @@ section, .card {
 }
 #bio {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   grid-auto-flow: row;
   gap:2em;
   align-items: center;
@@ -89,4 +89,32 @@ margin-bottom: -6rem;
 .service {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+#projects>.project{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  grid-auto-flow: dense;
+  align-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+  &>svg {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    width: auto;
+    @media (max-width: 630px) {
+      aspect-ratio: 1;
+    }
+  }
+  &>div {
+    max-height: max-content;
+    margin: auto;
+  }
+}
+#projects>.project:nth-child(odd)>svg {
+  @media (min-width: 630px) {
+    order: 2;
+  }
 }
