@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		// Enable top-level await and other modern ESM features.
 		"target": "ESNext",
-		"module": "ESNext",
+		"module": "ES6",
 		// Enable node-style module resolution, for things like npm package imports.
 		"moduleResolution": "node",
 		// Enable JSON imports.
@@ -14,7 +14,7 @@
 		// Tell TypeScript where your build output is
 		"outDir": "./dist",
 		"baseUrl": ".",
-		"importsNotUsedAsValues": "error",
+		"strictNullChecks": true,
 		"strict": false,
 		"plugins": [{ "name": "typescript-plugin-toml" }],
 		"paths": {
@@ -24,5 +24,6 @@
 			"_layouts/*": ["src/layouts/*"],
 			"_markdown/*": ["src/markdown-data/*"]
 		}
-	}
+	},
+	"include": ["./src/", "./tomlPlugin"]
 }

@@ -1,0 +1,127 @@
+@import url('./base.css');
+
+:root {
+	--background: var(--gray200);
+	--text-color: var(--gray800);
+	--heading-color: var(--key-tint);
+	--canvas-color: var(--gray100);
+	@media (prefers-color-scheme: light) {
+		--background: #fafafa;
+		--canvas-color: var(--red800);
+		--text-color: var(--dark-key);
+		--heading-color: var(--key-color);
+	}
+}
+
+body {
+	background-color: var(--canvas-color);
+	color: var(--text-color);
+	font-family: 'Work Sans', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+	display: grid;
+	grid-template:
+		'header header' 4em
+		'body sidebar' auto
+		'footer footer' minmax(4em, auto) / auto minmax(auto, 300px);
+	@media screen and (width <= 800px) {
+		grid-template:
+			'header' minmax(4em, auto)
+			'body' auto
+			'sidebar' auto
+			'footer' minmax(4em, auto) / minmax(auto, 800px);
+	}
+}
+
+h1,
+h2,
+h3,
+h4 {
+	color: var(--heading-color, #c85458);
+
+	& > a {
+		color: var(--heading-color, #c85458);
+	}
+}
+
+header {
+	position: relative;
+	grid-area: header;
+	width: 100%;
+	display: flex;
+	padding: 1em;
+	height: 100%;
+	gap: 2em;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header > nav {
+	display: flex;
+	gap: 2em;
+	flex-flow: row-reverse nowrap;
+	justify-content: center;
+
+	& > * {
+		color: var(--heading-color);
+		font-size: 1.44em;
+		margin: 0;
+	}
+}
+
+main {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+img {
+	width: 80%;
+	display: block;
+	aspect-ratio: 16/9;
+	margin-left: auto;
+	margin-right: auto;
+	object-fit: cover;
+	object-position: 0 100%;
+	border-radius: 0.25em;
+}
+
+footer {
+	min-height: 6em;
+	padding-top: 1em;
+
+	> * {
+		max-width: 800px;
+		width: 100%;
+		margin: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> nav {
+		margin-top: 2em;
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1em;
+
+		> a:visited {
+			color: var(--text-color);
+		}
+	}
+}
+
+header > nav {
+	display: flex;
+	gap: 2em;
+	flex-flow: row-reverse nowrap;
+	justify-content: center;
+
+	* {
+		color: var(--heading-color);
+		font-size: 1.44em;
+		margin: 0;
+	}
+}

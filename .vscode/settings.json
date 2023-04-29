@@ -3,5 +3,7 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"prettier.documentSelectors": ["**/*.astro"]
+	"prettier.documentSelectors": ["**/*.astro"],
+	"stylelint.packageManager": "pnpm",
+	"postcss.validate": false
 }

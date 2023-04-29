@@ -1,0 +1,33 @@
+---
+import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+import '_styles/blog-home.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="article">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ruby's Blog</title>
+		<SEO
+			title="Ruby's Blog"
+			description="Ruby's cute blog"
+			siteName="Ruby Quail Design"
+			image=""
+		/>
+	</head>
+	<body>
+		<header>
+			<h3>Ruby Quail Design</h3>
+			<nav class="post-nav">
+				<a href="/">Home</a>
+				<span>Blog</span>
+			</nav>
+		</header>
+		<footer>
+			<p>Written with love by Ruby Quail, &copy; 2023</p>
+			<nav><a href="/">Home</a><span>Blog</span></nav>
+		</footer>
+	</body>
+</html>

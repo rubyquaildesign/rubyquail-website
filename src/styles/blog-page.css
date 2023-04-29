@@ -1,0 +1,125 @@
+@import url('./base.css');
+
+:root {
+	--background: var(--gray200);
+	--text-color: var(--gray800);
+	--heading-color: var(--key-tint);
+	--header-color: var(--gray100);
+	@media (prefers-color-scheme: light) {
+		--background: #fafafa;
+		--header-color: var(--red800);
+		--text-color: var(--dark-key);
+		--heading-color: var(--key-color);
+	}
+}
+
+body {
+	background-color: var(--background);
+	color: var(--text-color);
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;
+	width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	color: var(--heading-color, #c85458);
+
+	& > a {
+		color: var(--heading-color, #c85458);
+	}
+}
+
+p > a:any-link {
+	color: var(--cyan800);
+}
+
+main {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+figure {
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	& > img {
+		object-fit: cover;
+		object-position: 0 100%;
+		border-radius: 0.25em;
+		/* aspect-ratio: 16/9; */
+		width: 100%;
+		height: auto;
+	}
+}
+
+header,
+footer {
+	--max-width: 800px;
+
+	max-width: var(--max-width);
+	background-color: var(--header-color);
+	overflow: hidden;
+	padding: 0.5em;
+	align-items: center;
+	padding-left: max(2em, calc(50vw - calc(calc(var(--max-width) + 1em) / 2)));
+	padding-right: max(2em, calc(50vw - calc(calc(var(--max-width)) / 2)));
+
+	& > * {
+		margin: 0 initial;
+	}
+}
+
+header {
+	min-height: 4em;
+	margin-bottom: 4em;
+	max-width: 100% !important;
+	box-sizing: border-box;
+	display: flex;
+	gap: 2em;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+footer {
+	min-height: 6em;
+	padding-top: 1em;
+
+	> * {
+		max-width: 800px;
+		width: 100%;
+		margin: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> nav {
+		margin-top: 2em;
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1em;
+
+		> a:visited {
+			color: var(--text-color);
+		}
+	}
+}
+
+header > nav {
+	display: flex;
+	gap: 2em;
+	flex-flow: row-reverse nowrap;
+	justify-content: center;
+
+	* {
+		color: var(--heading-color);
+		font-size: 1.44em;
+		margin: 0;
+	}
+}

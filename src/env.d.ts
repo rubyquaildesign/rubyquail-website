@@ -1,8 +1,9 @@
+/// <reference path="../.astro/types.d.ts" />
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 // Replace `astro/client` with `@astrojs/image/client`
 /// <reference types="@astrojs/image/client" />
-/// <reference types="astro/client" />
+/// <reference types="astro/client-image" />
 interface ImportMetaEnv {
 	readonly DB_PASSWORD: string;
 	readonly PUBLIC_POKEAPI: string;

@@ -1,19 +1,23 @@
 ---
-import { Picture } from '@astrojs/image/components';
-import { Content as Intro } from '../intro.md';
+import portrait from '../assets/portrait.png';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import '../styles/index.css';
 import { Content as Intro } from '../intro.md';
 import Layout from '_layouts/Basic.astro';
 import D from '../_data/data.json';
-import '../styles/home.scss';
 import IconButton from '_components/IconButton.astro';
 import Svg from '_components/SvgComponent.astro';
-import Aoc from '_components/aoc.astro';
-import portrait from '../portrait.png';
-import pier from '../pier.svg?raw';
+import HomeAnim from '_components/HomeAnim.svelte';
+import moment from 'moment'
 import { resolve } from 'path';
 import type { MarkdownInstance } from 'astro';
+import AcknowledgementOfCountry from '_components/AcknowledgementOfCountry.svelte';
 const socials = Object.values(D.icons);
+const blogPosts = (await getCollection('blog')).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0,3);
 let iconSizes = [16, 32, 96];
+console.log(import.meta.env);
+
 const projectGlob = Array.from(
 	Object.values(
 		import.meta.glob<MarkdownInstance<any>>(
@@ -25,30 +29,26 @@ const projectGlob = Array.from(
 ---
 
 <Layout title="Ruby Quail Design">
-	<Aoc />
-	<header set:html={pier}></header>
-	<script>
-		import '../scripts/pier';
-	</script>
+	<AcknowledgementOfCountry client:only="svelte" />
 	<header class="card">
-		<h1 class="title">Ruby Quail Design</h1>
-		<div class="services">
-			<span class="service">Service</span>
-			<span class="service">Industrial</span>
-			<span class="service">Interaction</span>
-			<span class="service">System</span>
+		<HomeAnim client:only />
+		<div class="title-block">
+			<h1 class="title">Ruby Quail Design</h1>
+			<div class="services">
+				<span class="service">Service</span>
+				<span class="service">Industrial</span>
+				<span class="service">Interaction</span>
+				<span class="service">System</span>
+			</div>
 		</div>
 	</header>
 	<main>
 		<section id="bio">
-			<Picture
+			<Image
 				src={portrait}
-				aspectRatio="1:1"
-				widths={[300, 500, 800]}
-				sizes="(max-width: 800px) 100%, 800px"
-				format={'png'}
+				width={300}
 				class="portrait"
-				alt="Portrait Photo of Ruby Quail with a pink tint applied"
+				alt="Portrait Photo of Ruby Quail with a red tint applied"
 			/>
 			<div>
 				<Intro />
@@ -62,6 +62,21 @@ const projectGlob = Array.from(
 					}
 				</nav>
 			</div>
+		</section>
+		<section id="Blog">
+			<h2><a href="">Recent Blog Posts</a></h2>
+			{
+				blogPosts.map(post => (
+					<h3>
+						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+					</h3>
+					<span>{moment(post.data.date).format('dddd, Do of MMMM YYYY')}</span>
+					<p>{post.data.desc}</p>
+				))
+			}
+			<p>
+				<a href="/blog">See more</a>
+			</p>
 		</section>
 		<section id="projects">
 			<h2>Projects</h2>
