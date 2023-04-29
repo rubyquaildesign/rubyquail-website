@@ -1,13 +1,12 @@
 ---
 import Basic from '_layouts/Basic.astro';
-import '_styles/cv.scss';
 import * as AI from 'astro-icon';
 import * as description from '_markdown/cv/description.md';
 import moment from 'moment';
+import { Image } from 'astro:assets';
 import WorkList from './_WorkList.astro';
 import data from '_data/cv.json';
-import { Picture } from '@astrojs/image/components';
-import portrait from '../../resume_portrait.png';
+import portrait from '../../assets/resume_portrait.png';
 function momentize(s: string) {
 	if (s === 'Present') return moment(Date.now());
 	return moment(s, ['MMM YYYY', 'MMMM YYYY']);
@@ -24,11 +23,10 @@ const Desc = description.Content;
 
 <Basic title="Ruby Quail CV">
 	<header>
-		<Picture
+		<Image
 			src={portrait}
-			widths={[400, 800, 1200]}
+			width={1200}
 			class="portrait"
-			aspectRatio="1:1"
 			sizes="(max-width: 800px) 100vw, 800px"
 			alt="A portrait photograph of Ruby Quail"
 		/>

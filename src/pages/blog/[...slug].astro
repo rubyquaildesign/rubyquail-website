@@ -1,0 +1,54 @@
+---
+import '_styles/blog-page.css';
+import { CollectionEntry, getCollection } from 'astro:content';
+import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog');
+
+	return blogEntries.map(entry => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+// 2. When it's time to render, you can get the entry directly from the prop
+const entry: CollectionEntry<'blog'> = Astro.props.entry;
+const { Content } = await entry.render();
+---
+
+<!DOCTYPE html>
+<html lang="en" class="article">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{entry.data.title}</title>
+		<SEO
+			title={entry.data.title}
+			description={entry.data.desc}
+			siteName="Ruby Quail Design"
+			image=""
+		/>
+	</head>
+
+	<body>
+		<header>
+			<h3>Ruby Quail Design</h3>
+			<nav class="post-nav">
+				<a href="/">Home</a>
+				<a href="/blog">Blog</a>
+			</nav>
+		</header>
+		<main>
+			<article>
+				<Content />
+			</article>
+		</main>
+		<footer>
+			<p>
+				Written with love by Ruby Quail, &copy; {entry.data.date.getFullYear()}
+			</p>
+			<nav><a href="/">Home</a><a href="/blog">Blog</a></nav>
+		</footer>
+	</body>
+</html>
