@@ -1,5 +1,5 @@
 import { type VercelApiHandler } from '@vercel/node';
-import get from './_actor.get';
+import get from './_actor_get';
 
 export const api = (async (request, response) => {
 	switch (request.method) {
