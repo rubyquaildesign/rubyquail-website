@@ -13,7 +13,13 @@ export async function getStaticPaths() {
 }
 // 2. When it's time to render, you can get the entry directly from the prop
 const entry: CollectionEntry<'blog'> = Astro.props.entry;
-const { Content } = await entry.render();
+const entryFile = await entry.render();
+const op = await Astro.glob('/src/content/blog/*.md');
+const file = op.find(v => v.file.includes(entry.slug))!;
+const output = file.compiledContent();
+console.log(output);
+
+const Content = entryFile.Content;
 ---
 
 <!DOCTYPE html>

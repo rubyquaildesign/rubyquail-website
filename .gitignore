@@ -8,3 +8,5 @@ _includes/**/*.js
 .bak
 .vercel
 .astro
+.keys
+*.paw
