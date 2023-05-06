@@ -80,27 +80,7 @@ const projectGlob = Array.from(
 		</section>
 		<section id="projects">
 			<h2>Projects</h2>
-			{
-				projectGlob.map(t => {
-					const fm = t.frontmatter;
-					return (
-						<div class:list={['project']}>
-							{fm.image ? (
-								<Svg href={resolve(t.url, fm.image)} title={fm.title} />
-							) : undefined}
-							<div>
-								<h3 set:text={fm.title} />
-								<p set:text={fm.desc} />
-								{fm.ready && (
-									<p>
-										<a href={t.url}>Find out more</a>
-									</p>
-								)}
-							</div>
-						</div>
-					);
-				})
-			}
+
 		</section>
 	</main>
 </Layout>
