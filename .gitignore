@@ -10,3 +10,4 @@ _includes/**/*.js
 .astro
 .keys
 *.paw
+.env
