@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		// Enable top-level await and other modern ESM features.
 		"target": "ESNext",
-		"module": "ES2020",
+		"module": "ESNext",
 		// Enable node-style module resolution, for things like npm package imports.
 		"moduleResolution": "node",
 		// Enable JSON imports.
@@ -25,5 +25,5 @@
 			"_markdown/*": ["src/markdown-data/*"]
 		}
 	},
-	"include": ["./src/", "./tomlPlugin", "./api"]
+	"include": ["./src/", "./tomlPlugin"]
 }
