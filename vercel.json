@@ -13,5 +13,8 @@
 				}
 			]
 		}
+	],
+	"rewrites":[
+		{"source":"/.well-known/webfinger","destination":"/api/pub/webfinger"}
 	]
 }
