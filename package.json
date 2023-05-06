@@ -71,7 +71,8 @@
 		"simplex-noise": "^2.4.0",
 		"toml": "^3.0.0",
 		"tslib": "^2.4.0",
-		"vite-plugin-toml": "^0.4.0"
+		"vite-plugin-toml": "^0.4.0",
+		"zod": "^3.21.4"
 	},
 	"scripts": {
 		"build": "astro build",

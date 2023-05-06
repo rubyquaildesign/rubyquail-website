@@ -25,5 +25,5 @@
 			"_markdown/*": ["src/markdown-data/*"]
 		}
 	},
-	"include": ["./src/", "./tomlPlugin"]
+	"include": ["./src/", "./tomlPlugin", "./api"]
 }

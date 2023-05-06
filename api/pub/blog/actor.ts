@@ -1,9 +1,11 @@
 import { type VercelApiHandler } from '@vercel/node';
+import get from './_actor.get';
 
 export const api = (async (request, response) => {
 	switch (request.method) {
 		case 'GET': {
-			response.end(`get request, right?`);
+			get(response);
+
 			break;
 		}
 
