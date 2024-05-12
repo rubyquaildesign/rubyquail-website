@@ -1,0 +1,56 @@
+---
+type HeadingEntry = {
+	depth: number;
+	slug: string;
+	text: string;
+};
+export interface Props {
+	headings: HeadingEntry[];
+}
+
+const headings = Astro.props.headings.slice(1);
+type HeadingTransformed = HeadingEntry & { children: HeadingTransformed[] };
+const headingMap = new Map<string, HeadingTransformed>();
+const headingObjects = headings.map((d) => {
+	const tr = { ...d, children: [] } as HeadingTransformed;
+	headingMap.set(tr.slug, tr);
+	return tr;
+});
+const lastElementPerDepth: HeadingTransformed[] = [];
+lastElementPerDepth[headingObjects[0]?.depth || 1] = headingObjects[0];
+for (const currentHeading of headingObjects) {
+	const parentHeadingDepth = (currentHeading?.depth || 1) - 1;
+	if (lastElementPerDepth[parentHeadingDepth]) {
+		lastElementPerDepth[parentHeadingDepth].children.push(currentHeading);
+	}
+	lastElementPerDepth[currentHeading.depth] = currentHeading;
+}
+
+const topLevelObjects = headingObjects.filter((d) => d?.depth == 2);
+---
+
+<nav class="table-of-contents">
+	<details>
+		<summary>
+			<span class="toc-title">Table Of Contents</span>
+		</summary>
+		<ul>
+			{
+				topLevelObjects.map((d) => {
+					const recFunc = (c) => (
+						<li>
+							<a href={'#' + c.slug}>{c.text}</a>
+							{c.children.length ? <ul>{c.children.map(recFunc)}</ul> : ''}
+						</li>
+					);
+					return (
+						<li>
+							<a href={'#' + d.slug}>{d.text}</a>
+							{d.children.length ? <ul>{d.children.map(recFunc)}</ul> : ''}
+						</li>
+					);
+				})
+			}
+		</ul>
+	</details>
+</nav>

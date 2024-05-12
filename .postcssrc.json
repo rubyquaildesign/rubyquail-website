@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "autoprefixer": {},
+    "postcss-extend-rule": {},
+    "postcss-preset-env": {
+      "stage": 2
+    },
+    "postcss-scrollbar": {}
+  }
+}

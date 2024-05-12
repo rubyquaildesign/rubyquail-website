@@ -1,0 +1,87 @@
+---
+import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+import { getCollection } from 'astro:content';
+import { Window } from 'happy-dom';
+import Layout from '_layouts/Basic.astro';
+import '_styles/blog-home.css';
+import { rollups } from 'd3';
+import moment from 'moment';
+const col = await getCollection('blog');
+const window = new Window();
+const doc = window.document;
+const data = await Promise.all(
+	col.map(async (c) => {
+		const output: any[] = [];
+		const writer = { write: (chunk) => output.push(chunk) };
+		const result = await c.render();
+		const ret = result.Content({}, {}, {});
+		const render = await ret.content.expressions[0];
+		await render.render(writer);
+		const text = output[3];
+		doc.body.innerHTML = text;
+		return {
+			...c,
+			date: c.data.date,
+			intro: doc
+				.querySelectorAll('p')
+				.map((p) => p.innerText)
+				.join('||||')
+				.slice(0, 512)
+				.split('||||'),
+		};
+	}),
+);
+const tags = rollups(
+	data.flatMap((d) => d.data.tags),
+	(d) => d.length,
+	(d) => d,
+)
+	.sort((a, b) => new Intl.Collator('en').compare(a[0], b[0]))
+	.sort((a, b) => b[1] - a[1]);
+console.log(tags);
+data.sort((a, b) => {
+	const aDate = a.date.valueOf();
+	const bDate = b.date.valueOf();
+	return bDate - aDate;
+});
+---
+
+<Layout title="Blog">
+	<header>
+		<div class="header-container">
+			<span class="title">Ruby Quail Design</span>
+			<nav class="post-nav">
+				<a href="/">Home</a>
+				<span>Blog</span>
+			</nav>
+		</div>
+	</header>
+	<main class="stack">
+		{
+			data.map((t) => {
+				return (
+					<section class="card">
+						<h2>
+							<a href={`/blog/${t.slug}`}>{t.data.title}</a>
+						</h2>
+						<p class="date">
+							{moment(t.data.date).format('dddd, Do of MMMM YYYY')}
+						</p>
+						{t.intro.map((p, i) =>
+							i === t.intro.length - 1 ? <p>{p.trim()}...</p> : <p>{p}</p>,
+						)}
+						<p>
+							<a href={`/blog/${t.slug}`}>Read more</a>
+						</p>
+					</section>
+				);
+			})
+		}
+	</main>
+
+	<footer>
+		<div class="footer-container">
+			<p>Written with love by Ruby Quail, &copy; 2023</p>
+		</div>
+	</footer>
+</Layout>

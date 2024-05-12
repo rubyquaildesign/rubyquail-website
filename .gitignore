@@ -6,3 +6,8 @@ dist
 _includes/**/*.js
 .Ulysses-Settings.plist
 .bak
+.vercel
+.astro
+.keys
+*.paw
+.env

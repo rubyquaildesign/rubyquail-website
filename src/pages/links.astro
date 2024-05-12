@@ -1,27 +1,77 @@
 ---
 import SEO from '@julian_cataldo/astro-seo/SEO.astro';
-import '../styles/links.scss'
-import data from '_data/data.json'
+import '_styles/global.css';
+import data from '_data/data.json';
 import '@fontsource/quicksand';
-import '@fontsource/work-sans'
+import '@fontsource/work-sans';
 const links = data.links;
 ---
 
-<html lang="en">
+<style is:global>
+	:root {
+		--bg-color: var(--gray100);
+		--card-col: var(--gray200);
+		--text-col: var(--red500);
+	}
+	body {
+		background-color: var(--bg-color);
+	}
+	ul {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		gap: 1em;
+	}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Links</title>
-  <SEO title="Ruby Quail Design" description={data.description}
-    image="https://files.rubyquail.design/portrait/portrait_square.jpg"
-    siteName="Ruby Quail Design" />
-</head>
+	main {
+		max-width: 800px;
+		padding: 2em;
+		margin: auto;
+	}
+	h1 {
+		padding: 1em;
+		text-align: center;
+		margin: auto;
+		color: var(--text-col);
+	}
+	li {
+		list-style-type: none;
+		padding: 1em;
+		background-color: var(--card-col);
+		font-size: 1.44em;
+		color: var(--text-col);
+		border-radius: 0.5em;
+		text-align: center;
+	}
+	a {
+		color: var(--text-col);
+	}
+</style>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Links</title>
+<SEO
+	title="Ruby Quail Design"
+	description={data.description}
+	image="https://files.rubyquail.design/portrait/portrait_square.jpg"
+	siteName="Ruby Quail Design"
+/>
 
 <body>
-  <h1>Ruby's Links</h1>
-  {links.map(l => <a href={l.link}>{l.title}</a>)}
+	<h1>Ruby's Links</h1>
+	<main>
+		<nav>
+			<ul>
+				{
+					links.map((l) => (
+						<li>
+							<a href={l.link}>{l.title}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</main>
 </body>
-
-</html>
