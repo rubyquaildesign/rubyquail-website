@@ -1,7 +1,7 @@
 ---
 // Supports weights 300-700
 
-import { Image } from 'astro:assets';
+import { Image, imageConfig } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import '@fontsource-variable/lora';
 import '@fontsource/space-mono';
@@ -22,29 +22,21 @@ const blogPosts = (await getCollection('blog'))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 3);
 const iconSizes = [16, 32, 96];
-console.log(artworks);
 const projectGlob = Array.from(
 	Object.values(
-		import.meta.glob<MarkdownInstance<any>>(
-			['../pages/projects/*/*.md', '../pages/projects/*/*.astro'],
-			{ eager: true },
-		),
+		import.meta.glob<MarkdownInstance<any>>([
+			'../projects/*/*.md',
+			'../projects/*/*.astro',
+		]),
 	),
 );
 
 const projectElements = await Promise.all(
 	projectGlob.map(async (post) => {
-		const matter = post.frontmatter;
-		const iamgeData = await import(path.resolve(post.file, '..', matter.image));
-		return [post, iamgeData];
+		const data = await post();
+		const matter = data.frontmatter;
+		return [data];
 	}),
-);
-console.log(
-	await Promise.all(
-		projectGlob.map(
-			(r) => import(path.resolve(r.file, '..', r.frontmatter.image)),
-		),
-	),
 );
 ---
 
@@ -150,15 +142,9 @@ console.log(
 			<ul style="padding-left: 0px; list-style: none;">
 				{
 					projectElements.map((a) => {
-						const imageData = a[1];
 						const frontMatter = a[0].frontmatter;
 						return (
 							<li class="card-item">
-								<Image
-									src={imageData.default}
-									alt={`Icon for ${frontMatter.title}`}
-									width={200}
-								/>
 								<div>
 									<hgroup>
 										<h3>{frontMatter.title}</h3>

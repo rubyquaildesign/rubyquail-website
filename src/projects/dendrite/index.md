@@ -4,7 +4,7 @@ subtitle: Dynamic design mapping in 2022
 desc: "The bread and butter of service design and other design thinking exercises is mapping systems of one form or another, but there hasn't been a digital tool for these quick mapping exercises that can match the speed and utility of post-its and butchers paper, I'm looking at ways to do this better"
 ready: true
 layout: '_layouts/Post.astro'
-image: './icon.svg'
+# image: './icon.svg'
 date: 2022-08-17
 ---
 
