@@ -1,0 +1,276 @@
+@import url('@fontsource/quicksand/latin.css');
+@import url('@fontsource/lora/latin.css');
+
+:root {
+	/* https://accessiblepalette.com/?lightness=95,90,80,70,60,50,40,30,20,10&B4274B=0,0&ACABAA=1,-10&FAAA3=1,5 */
+	--D-text: #f0f1f1;
+	--D-background: #1f242a;
+	--D-primary: #511921;
+	--D-secondary: #5d1427;
+	--D-accent: #e73b63;
+	--D-backdrop: #0b131a;
+
+	--L-text: #13161a;
+	--L-background: #f6efed;
+	--L-primary: #861d38;
+	--L-secondary: #dc99aa;
+	--L-accent: #b1264a;
+	--L-backdrop: #ede0db;
+
+	--text: var(--D-text);
+	--background: var(--D-background);
+	--primary: var(--D-primary);
+	--secondary: var(--D-secondary);
+	--accent: var(--D-accent);
+	--backdrop: var(--D-backdrop);
+
+	@media (prefers-color-scheme: light) {
+		--text: var(--L-text);
+		--background: var(--L-background);
+		--primary: var(--L-primary);
+		--secondary: var(--L-secondary);
+		--accent: var(--L-accent);
+		--backdrop: var(--L-backdrop);
+	}
+
+	--font-heading: 'Quicksand Variable', 'Quicksand Variable', Helvetica Neue,
+		Helvetica, Arial, sans-serif;
+	--font-serif: 'Lora', sans-serif;
+	--font-mono: 'Space Mono', Menlo, Courier, Courier New, Andale Mono, monospace;
+	--line-height-small: 1.1;
+	--bird-1: #b61f3f;
+	--bird-2: #e71c4c;
+	--bird-3: #861e31;
+	--code-red: var(--accent);
+	--code-green: #5ed479;
+	--code-blue: #7ec7dd;
+	--code-purple: #876ed8;
+	--code-orange: #d3765a;
+
+	@media (prefers-color-scheme: light) {
+		--code-green: #4f9c61;
+		--code-blue: #36a7c9;
+		--code-purple: #6b56b1;
+		--code-orange: #c95836;
+	}
+
+	--measure: 64ch;
+	--paragraph-max: 35rem;
+	/* @link https://utopia.fyi/type/calculator?c=320,16,1.25,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=3xs,s,l,12 */
+	/* Step -2: 10.24px → 12.80px */
+	--step--2: clamp(0.64rem, 0.5843rem + 0.2783vw, 0.8rem);
+
+	/* Step -1: 12.80px → 16.00px */
+	--step--1: clamp(0.8rem, 0.7304rem + 0.3478vw, 1rem);
+
+	/* Step 0: 16.00px → 20.00px */
+	--step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+
+	/* Step 1: 20.00px → 25.00px */
+	--step-1: clamp(1.25rem, 1.1413rem + 0.5435vw, 1.5625rem);
+
+	/* Step 2: 25.00px → 31.25px */
+	--step-2: clamp(1.5625rem, 1.4266rem + 0.6793vw, 1.9531rem);
+
+	/* Step 3: 31.25px → 39.06px */
+	--step-3: clamp(1.9531rem, 1.7833rem + 0.8489vw, 2.4413rem);
+
+	/* Step 4: 39.06px → 48.83px */
+	--step-4: clamp(2.4413rem, 2.2289rem + 1.062vw, 3.0519rem);
+
+	/* Step 5: 48.83px → 61.04px */
+	--step-5: clamp(3.0519rem, 2.7864rem + 1.3272vw, 3.815rem);
+
+	/* Space 5xs: 1px → 1px */
+	--space-5xs: clamp(0.0625rem, 0.0625rem + 0vw, 0.0625rem);
+
+	/* Space 4xs: 2px → 3px */
+	--space-4xs: clamp(0.125rem, 0.1033rem + 0.1087vw, 0.1875rem);
+
+	/* Space 3xs: 4px → 5px */
+	--space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+
+	/* Space 2xs: 8px → 10px */
+	--space-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem);
+
+	/* Space xs: 12px → 15px */
+	--space-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem);
+
+	/* Space s: 16px → 20px */
+	--space-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+
+	/* Space m: 24px → 30px */
+	--space-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem);
+
+	/* Space l: 32px → 40px */
+	--space-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem);
+
+	/* Space xl: 48px → 60px */
+	--space-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem);
+
+	/* Space 2xl: 64px → 80px */
+	--space-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem);
+
+	/* Space 3xl: 96px → 120px */
+	--space-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem);
+
+	/* Space 4xl: 112px → 140px */
+	--space-4xl: clamp(7rem, 6.3913rem + 3.0435vw, 8.75rem);
+
+	/* Space 5xl: 128px → 160px */
+	--space-5xl: clamp(8rem, 7.3043rem + 3.4783vw, 10rem);
+
+	/* One-up pairs */
+	/* Space 5xs-4xs: 1px → 3px */
+	--space-5xs-4xs: clamp(0.0625rem, 0.019rem + 0.2174vw, 0.1875rem);
+
+	/* Space 4xs-3xs: 2px → 5px */
+	--space-4xs-3xs: clamp(0.125rem, 0.0598rem + 0.3261vw, 0.3125rem);
+
+	/* Space 3xs-2xs: 4px → 10px */
+	--space-3xs-2xs: clamp(0.25rem, 0.1196rem + 0.6522vw, 0.625rem);
+
+	/* Space 2xs-xs: 8px → 15px */
+	--space-2xs-xs: clamp(0.5rem, 0.3478rem + 0.7609vw, 0.9375rem);
+
+	/* Space xs-s: 12px → 20px */
+	--space-xs-s: clamp(0.75rem, 0.5761rem + 0.8696vw, 1.25rem);
+
+	/* Space s-m: 16px → 30px */
+	--space-s-m: clamp(1rem, 0.6957rem + 1.5217vw, 1.875rem);
+
+	/* Space m-l: 24px → 40px */
+	--space-m-l: clamp(1.5rem, 1.1522rem + 1.7391vw, 2.5rem);
+
+	/* Space l-xl: 32px → 60px */
+	--space-l-xl: clamp(2rem, 1.3913rem + 3.0435vw, 3.75rem);
+
+	/* Space xl-2xl: 48px → 80px */
+	--space-xl-2xl: clamp(3rem, 2.3043rem + 3.4783vw, 5rem);
+
+	/* Space 2xl-3xl: 64px → 120px */
+	--space-2xl-3xl: clamp(4rem, 2.7826rem + 6.087vw, 7.5rem);
+
+	/* Space 3xl-4xl: 96px → 140px */
+	--space-3xl-4xl: clamp(6rem, 5.0435rem + 4.7826vw, 8.75rem);
+
+	/* Space 4xl-5xl: 112px → 160px */
+	--space-4xl-5xl: clamp(7rem, 5.9565rem + 5.2174vw, 10rem);
+
+	font-size: 16px;
+	line-height: 1.2;
+	font-family: var(--font-heading, sans-serif);
+
+	--astro-code-color-background: var(--header-footer);
+	--astro-code-token-function: var(--code-purple);
+	--astro-code-token-string-expression: var(--code-green);
+	--astro-code-token-keyword: var(--code-red);
+}
+
+/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+
+ul[role='list'],
+ol[role='list'] {
+	list-style: none;
+}
+
+/* Set core body defaults */
+
+body {
+	min-height: 100vh;
+	line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+	line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+
+a {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+}
+
+/* Make images easier to work with */
+
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+
+textarea:not([rows]) {
+	min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+
+:target {
+	scroll-margin-block: 5ex;
+}
+
+.astro-code {
+	padding: var(--space-xs);
+	border: 2px solid var(--text);
+	border-radius: var(--space-4xs);
+}

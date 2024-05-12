@@ -1,20 +1,41 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	let dialogueElement: HTMLDialogElement;
 	const dayMilis = 24 * 60 * 60 * 1000;
 	const close = () => {
-		// Set AcknowledgeTime
 		localStorage.setItem('last-acknowledgement', Date.now().toString());
 		isOpen = false;
 		window.clearTimeout(t);
 	};
 	let isOpen = false;
 	let t: number;
+
+	const fadeClose = () => {
+		const keyFrame = new KeyframeEffect(dialogueElement, [{ opacity: '0' }], {
+			duration: 300,
+			easing: 'ease',
+			direction: 'normal',
+		});
+		const keyFrameBG = new KeyframeEffect(dialogueElement, [{ opacity: '0' }], {
+			duration: 300,
+			easing: 'ease',
+			direction: 'normal',
+			pseudoElement: '::backdrop',
+		});
+
+		const animation = new Animation(keyFrame, document.timeline);
+		const animationBG = new Animation(keyFrameBG, document.timeline);
+		animation.play();
+		animationBG.play();
+		animation.onfinish = () => dialogueElement.close();
+	};
 	onMount(() => {
 		const now = Date.now();
 		const then = parseInt(localStorage.getItem('last-acknowledgement') ?? '0');
 		if (now - then > dayMilis) dialogueElement.showModal();
+		// dialogueElement.showModal();
 		t = window.setTimeout(() => dialogueElement.close(), 3000);
 		return () => {
 			close();
@@ -54,31 +75,38 @@
 	<button
 		style="width: max-content;"
 		id="close-aoc"
-		on:click={() => dialogueElement.close()}>Close</button
+		on:click={() => fadeClose()}>Close</button
 	>
 </dialog>
 
 <style>
-	dialog {
-		max-width: 800px;
-		background-color: var(--gray50);
-
-		color: var(--text-color);
-		@media (prefers-color-scheme: light) {
-			background-color: var(--card-background);
+	@keyframes fade-in {
+		from {
+			opacity: 0;
 		}
-
-		font-family: 'Work sans', sans-serif;
-		border: 0;
-		transition: all 100ms;
 	}
 
-	dialog::backdrop {
-		background: #14171d;
+	dialog {
+		max-width: var(--measure);
+		pointer-events: none;
+		background-color: var(--background);
+		text-align: left;
+		color: var(--text);
+		opacity: 1;
+		font-family: var(--font-serif);
+		animation: fade-in 500ms forwards ease;
+		pointer-events: inherit;
+		border: 0;
+	}
+	:global(dialog::backdrop) {
+		--D-background: #13161a;
+		--L-background: #f6efed;
+		--background: var(--D-background);
+
 		@media (prefers-color-scheme: light) {
-			background: #fafafa;
+			--background: var(--L-background);
 		}
-		transition: opacity 100ms;
+		background-color: var(--background);
 	}
 
 	a {
@@ -89,10 +117,16 @@
 		font-family: 'Quicksand', sans-serif;
 	}
 
-	button {
-		color: #000;
+	button#close-aoc {
+		background-color: var(--secondary);
+		font-family: var(--font-heading);
+		color: var(--text);
+		border: 0;
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
+		padding-inline: var(--space-2xs);
+		border-radius: var(--space-3xs);
+		cursor: pointer;
 	}
 </style>

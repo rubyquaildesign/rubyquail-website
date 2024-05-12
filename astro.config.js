@@ -1,37 +1,43 @@
 /* eslint-disable n/file-extension-in-import */
 import { defineConfig } from 'astro/config';
-import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
-import remarkSectionize from 'remark-sectionize';
-import remarkToc from 'remark-toc';
-import remarkDirective from 'remark-directive';
-import remarkDirectiveRehype from 'remark-directive-rehype';
-import remarkFigureCaption from '@microflash/remark-figure-caption';
 import robotsTxt from 'astro-robots-txt';
 import sitemap from '@astrojs/sitemap'; // https://astro.build/config
+import remarkSectionize from 'remark-sectionize';
+import remarkFigureCaption from '@microflash/remark-figure-caption';
+import yaml from '@importable/yaml/astro';
+import { visit } from 'unist-util-visit';
+import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://rubyquail.design',
-	integrations: [svelte(), mdx(), robotsTxt(), sitemap()],
-	experimental: {
-		integrations: true,
-		assets: true,
-	},
+	integrations: [mdx(), robotsTxt(), sitemap(), yaml(), svelte()],
 	markdown: {
+		syntaxHighlight: 'shiki',
+		shikiConfig: {
+			wrap: false,
+			theme: 'css-variables',
+		},
 		remarkPlugins: [
 			'remark-gfm',
 			'remark-smartypants',
-			[
-				remarkToc,
-				{
-					tight: true,
-				},
-			],
 			remarkSectionize,
-			remarkDirective,
-			remarkDirectiveRehype,
 			remarkFigureCaption,
+			() => (t, f) => {
+				if (!f?.data?.astro?.frontmatter?.figureCaptions) {
+					visit(t, 'figure', (n) => {
+						n.children.splice(1);
+					});
+				}
+			},
+		],
+	},
+	image: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+			},
 		],
 	},
 	vite: {

@@ -1,9 +1,9 @@
 {
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"[astro]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"prettier.documentSelectors": ["**/*.astro"],
-	"stylelint.packageManager": "pnpm",
-	"postcss.validate": false
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "stylelint.packageManager": "pnpm",
+  "postcss.validate": false
 }

@@ -8,7 +8,13 @@ const blogCollection = defineCollection({
 		tags: z.array(z.string()),
 	}),
 });
+const noteCollection = defineCollection({
+	schema: z.object({
+		date: z.date(),
+	}),
+});
 
 export const collections = {
 	blog: blogCollection,
+	note: noteCollection,
 };

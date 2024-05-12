@@ -68,8 +68,8 @@
 
 {#if svg}
 	<svg viewBox="0 30 100 70">
-		<path style="fill: var(--card-background)" d={seaString} />
-		<g style="fill: var(--card-background)">
+		<path style="fill: var(--background)" d={seaString} />
+		<g style="fill: var(--background)">
 			{@html pierElement.innerHTML}
 		</g>
 		<a href="/blog">
@@ -78,19 +78,19 @@
 		<g>
 			<path
 				d={quailElement.querySelector('#body').getAttribute('d')}
-				style="fill:#ce4655"
+				style="fill:var(--bird-1)"
 			/>
 			<path
 				d={quailElement.querySelector('#belly').getAttribute('d')}
-				style="fill:#e27179"
+				style="fill:var(--bird-2)"
 			/>
 			<path
 				d={quailElement.querySelector('#back').getAttribute('d')}
-				style="fill:#b01e37"
+				style="fill:var(--bird-3)"
 			/>
 			<path
 				d={quailElement.querySelector('#feet').getAttribute('d')}
-				style="fill:#b01e37"
+				style="fill:var(--bird-3)"
 			/>
 		</g>
 	</svg>
@@ -103,5 +103,6 @@
 		margin: 0;
 		z-index: -1;
 		margin-bottom: -0.5em;
+		--note-color: color-mix(in lab, var(--card-background), var(--text) 20%);
 	}
 </style>

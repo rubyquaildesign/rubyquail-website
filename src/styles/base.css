@@ -1,49 +1,58 @@
-@import url('./colours.css');
-@import url('@fontsource/fredoka/latin.css');
+@import url('./tokens.css');
 @import url('@fontsource/quicksand/latin.css');
-@import url('@fontsource/work-sans/latin.css');
+@import url('@fontsource/lora/latin.css');
 
 :root {
-	font-size: 16px;
 	line-height: 1.5;
+	font-size: 20px;
 	font-family: Fredoka, sans-serif;
 }
 
-h1 {
-	font-size: 2.5rem;
-	line-height: 1.5;
-	font-family: Quicksand, sans-serif;
-	margin-top: 0.5em;
+* {
+	max-inline-size: var(--measure);
 }
 
-h2 {
-	font-size: 2rem;
-	line-height: 1.5;
-	font-family: Quicksand, sans-serif;
-	margin-top: 0.5em;
-}
-
-h3 {
-	font-size: 1.44rem;
-	line-height: 1.5;
-	font-family: Quicksand, sans-serif;
-	margin-bottom: 0.2em;
-}
-
-h4 {
-	font-size: 1.2rem;
-	line-height: 1.5;
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+	max-inline-size: none;
+	color: var(--text);
 }
 
 p {
-	font-size: 1.2rem;
-	font-family: 'Work Sans', sans-serif;
+	font-size: var(--s0);
 }
 
-.small-text {
-	font-size: 0.8rem;
+h3 {
+	font-style: var(--s3);
 }
 
-body > * {
-	max-width: 800px;
+h2 {
+	font-style: var(--s4);
+}
+
+h1 {
+	font-style: var(--s5);
+}
+
+* + * {
+	margin-block-start: 0;
+}
+
+.stack > * + * {
+	margin-block-start: 1.5em;
+}
+
+.center {
+	box-sizing: content-box;
+	max-inline-size: var(--measure);
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-inline: var(--s1);
 }
