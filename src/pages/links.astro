@@ -1,6 +1,6 @@
 ---
 import SEO from '@julian_cataldo/astro-seo/SEO.astro';
-import '_styles/base.css';
+import '_styles/global.css';
 import data from '_data/data.json';
 import '@fontsource/quicksand';
 import '@fontsource/work-sans';
@@ -65,7 +65,7 @@ const links = data.links;
 		<nav>
 			<ul>
 				{
-					links.map(l => (
+					links.map((l) => (
 						<li>
 							<a href={l.link}>{l.title}</a>
 						</li>
