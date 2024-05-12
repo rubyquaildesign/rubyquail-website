@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://files.rubyquail.design/schemas/ruby-schema.json#/definitions/artdoc
+- title: Garden of Gender
+  date: 2023-01-12
+  thumbnail: https://files.rubyquail.design/garden-of-gender.png
+  link: https://garden-of-gender.rubyquail.design/
+  description: "\"Marble et Moss\" reimagines classic sculptures to reflect trans aesthetics, using a physarum simulation where moss symbolically grows over and transforms marble statues, challenging traditional beauty ideals."
+- title: Dost thou Bleed
+  date: 2023-03-01
+  thumbnail: https://files.rubyquail.design/thou-dost-bleed-thumb.png
+  link: https://thou-dost-bleed.vercel.app/
+  description: "\"Thou Dost Bleed\" is an interactive discursive work that aims to critique a focus on suffering as a key signifier of womanhood, in particular the pain of menstruation and childbirth. These signifiers have often been wielded against trans femme's identity by radical feminist groups, but also by centring these particular experiences as central to womanhood, the experiences of all trans people are minimised and erased. "

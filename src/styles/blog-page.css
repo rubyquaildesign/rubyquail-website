@@ -1,46 +1,78 @@
-@import url('./base.css');
-
-:root {
-	--background: var(--gray200);
-	--text-color: var(--gray800);
-	--heading-color: var(--key-tint);
-	--header-color: var(--gray100);
-	@media (prefers-color-scheme: light) {
-		--background: #fafafa;
-		--header-color: var(--red800);
-		--text-color: var(--dark-key);
-		--heading-color: var(--key-color);
-	}
-}
+@import url('./global.css');
 
 body {
 	background-color: var(--background);
-	color: var(--text-color);
-	font-family: 'Work Sans', sans-serif;
+	color: var(--text);
+	font-family: var(--font-serif);
+	padding: 0;
 	margin: 0;
-	width: 100%;
+	container-name: article;
+	container-type: inline-size;
+	position: relative;
+	line-height: 1.5;
+	font-size: var(--space-xs-s);
+}
+
+h1 {
+	font-size: var(--space-l);
+}
+
+h2 {
+	font-size: var(--space-m);
+}
+
+h3 {
+	font-size: var(--space-s);
 }
 
 h1,
 h2,
 h3,
 h4 {
-	color: var(--heading-color, #c85458);
+	font-family: var(--font-heading);
+	color: var(--accent);
+}
 
-	& > a {
-		color: var(--heading-color, #c85458);
+.title {
+	font-family: var(--font-heading);
+	color: var(--accent);
+	font-size: var(--space-m);
+	font-weight: 700;
+}
+
+.table-of-contents,
+header,
+footer {
+	background-color: var(--backdrop);
+}
+
+header {
+	margin: 0;
+	min-block-size: var(--space-xl-2xl);
+	display: flex;
+	inline-size: 100%;
+	flex-direction: column;
+	justify-content: center;
+
+	.header-container {
+		max-inline-size: var(--measure);
+		inline-size: 100%;
+		padding: var(--space-s);
+		display: flex;
+		font-display: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-inline: auto;
+		block-size: 100%;
 	}
 }
 
-p > a:any-link {
-	color: var(--cyan800);
-}
-
 main {
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 2em;
-	padding-right: 2em;
+	width: var(--measure);
+	max-width: 100%;
+	margin-inline: auto;
+	padding: var(--space-s);
+	min-height: 100vh;
 }
 
 figure {
@@ -59,67 +91,80 @@ figure {
 	}
 }
 
-header,
-footer {
-	--max-width: 800px;
+aside {
+	top: var(--space-xs);
 
-	max-width: var(--max-width);
-	background-color: var(--header-color);
-	overflow: hidden;
-	padding: 0.5em;
+	@container article (width > 1500px) {
+		position: absolute;
+		/* float: right; */
+		height: 100%;
+		left: var(--space-xs);
+		top: calc(var(--space-xl-2xl) + var(--space-xs));
+	}
+}
+
+.table-of-contents {
+	padding: var(--space-xs);
+	border-radius: var(--space-xs);
+
+	& li {
+		list-style: none;
+	}
+
+	.toc-title {
+		font-family: var(--font-heading);
+		color: var(--accent);
+		font-size: var(--space-s);
+		font-weight: 700;
+	}
+
+	details > summary {
+		color: var(--accent);
+	}
+
+	@container article (width > 1500px) {
+		top: var(--space-xs);
+		position: sticky;
+		max-width: max-content;
+		width: calc(((100cqw - var(--measure)) / 2.2));
+	}
+}
+
+footer {
+	background-color: var(--backdrop);
+	min-block-size: var(--space-l);
+	padding-block: var(--space-xs);
+
+	display: block flex;
+	flex-direction: row-reverse;
 	align-items: center;
-	padding-left: max(2em, calc(50vw - calc(calc(var(--max-width) + 1em) / 2)));
-	padding-right: max(2em, calc(50vw - calc(calc(var(--max-width)) / 2)));
 
-	& > * {
-		margin: 0 initial;
-	}
-}
-
-header {
-	min-height: 4em;
-	margin-bottom: 4em;
-	max-width: 100% !important;
-	box-sizing: border-box;
-	display: flex;
-	gap: 2em;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-footer {
-	min-height: 6em;
-	padding-top: 1em;
-
-	> * {
-		max-width: 800px;
-		width: 100%;
-		margin: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	> nav {
-		margin-top: 2em;
+	.footer-container {
+		max-inline-size: var(--measure);
+		inline-size: 100%;
+		padding: var(--space-xs);
 		display: flex;
-		flex-flow: row wrap;
-		gap: 1em;
-
-		> a:visited {
-			color: var(--text-color);
-		}
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		margin-inline: auto;
+		block-size: 100%;
 	}
 }
 
-header > nav {
-	display: flex;
-	gap: 2em;
-	flex-flow: row-reverse nowrap;
-	justify-content: center;
+pre {
+	scrollbar-color: var(--text) transparent;
+}
 
-	* {
-		color: var(--heading-color);
-		font-size: 1.44em;
-		margin: 0;
-	}
+pre::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	height: 12px;
+	border: 4px solid var(--background);
+	/* border-style: inset; */
+	box-sizing: border-box;
+}
+
+pre::-webkit-scrollbar {
+	height: 12px;
+	border-radius: 6px;
 }

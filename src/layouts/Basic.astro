@@ -1,6 +1,21 @@
 ---
-import SEO from '@julian_cataldo/astro-seo/SEO.astro';
+import { SEO } from 'astro-seo';
 import data from '../_data/data.json';
+// Supports weights 400-700
+import '@fontsource-variable/quicksand';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+import '@fontsource/lora/400-italic.css';
+import '@fontsource/lora/500-italic.css';
+import '@fontsource/lora/600-italic.css';
+import '@fontsource/lora/700-italic.css';
+import '@fontsource/space-mono/400-italic.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700-italic.css';
+import '@fontsource/space-mono/700.css';
+import '../styles/global.css';
 export interface Props {
 	title: string;
 }
@@ -15,14 +30,16 @@ let iconSizes = [16, 32, 96];
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title}</title>
-		<SEO
-			title={title}
-			description={data.description}
-			image="/portrait_500x500.png"
-			siteName="Ruby Quail Design"
-		/>
+		<slot name="head">
+			<SEO
+				title={title}
+				description={data.description}
+				image="/portrait_500x500.png"
+				siteName="Ruby Quail Design"
+			/>
+		</slot>
 		{
-			iconSizes.map(sz => (
+			iconSizes.map((sz) => (
 				<link
 					rel="icon"
 					type="image/png"
@@ -31,7 +48,8 @@ let iconSizes = [16, 32, 96];
 				/>
 			))
 		}
-		<slot name="head" />
 	</head>
-	<slot />
+	<body class="center">
+		<slot />
+	</body>
 </html>

@@ -2,6 +2,7 @@
 title: Ruby's Top 10 games of 2022
 desc: "A List of Ruby's favourite games"
 date: 2022-12-19
+figureCaptions: false
 tags: [list]
 ---
 
