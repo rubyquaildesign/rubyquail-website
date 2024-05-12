@@ -1,60 +1,87 @@
 ---
-import { Picture } from '@astrojs/image/components';
-import { Content as Intro } from '../intro.md';
+// Supports weights 300-700
+
+import { Image, imageConfig } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import '@fontsource-variable/lora';
+import '@fontsource/space-mono';
+import '../styles/home.css';
 import { Content as Intro } from '../intro.md';
 import Layout from '_layouts/Basic.astro';
 import D from '../_data/data.json';
-import '../styles/home.scss';
 import IconButton from '_components/IconButton.astro';
-import Svg from '_components/SvgComponent.astro';
-import Aoc from '_components/aoc.astro';
-import portrait from '../portrait.png';
-import pier from '../pier.svg?raw';
-import { resolve } from 'path';
+import HomeAnim from '_components/HomeAnim.svelte';
+import moment from 'moment';
+import artworks, { artType } from '../data';
+import * as path from 'node:path';
 import type { MarkdownInstance } from 'astro';
+import AcknowledgementOfCountry from '_components/AcknowledgementOfCountry.svelte';
+import { SEO } from 'astro-seo';
 const socials = Object.values(D.icons);
-let iconSizes = [16, 32, 96];
+const blogPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3);
+const iconSizes = [16, 32, 96];
 const projectGlob = Array.from(
 	Object.values(
-		import.meta.glob<MarkdownInstance<any>>(
-			['../pages/projects/*/*.md', '../pages/projects/*/*.astro'],
-			{ eager: true },
-		),
+		import.meta.glob<MarkdownInstance<any>>([
+			'../projects/*/*.md',
+			'../projects/*/*.astro',
+		]),
 	),
+);
+
+const projectElements = await Promise.all(
+	projectGlob.map(async (post) => {
+		const data = await post();
+		const matter = data.frontmatter;
+		return [data];
+	}),
 );
 ---
 
 <Layout title="Ruby Quail Design">
-	<Aoc />
-	<header set:html={pier}></header>
-	<script>
-		import '../scripts/pier';
-	</script>
-	<header class="card">
-		<h1 class="title">Ruby Quail Design</h1>
-		<div class="services">
-			<span class="service">Service</span>
-			<span class="service">Industrial</span>
-			<span class="service">Interaction</span>
-			<span class="service">System</span>
+	<AcknowledgementOfCountry client:only="svelte" />
+	<SEO
+		slot="head"
+		title="Ruby Quail Design"
+		description={D.description}
+		openGraph={{
+			basic: {
+				title: 'Ruby Quail Design',
+				image: '/portrait_500x500.png',
+				type: 'website',
+			},
+		}}
+	/>
+	<header class="">
+		<HomeAnim client:only />
+		<div class="title-block center">
+			<h1 class="title">Ruby Quail Design</h1>
+			<div class="services cluster">
+				<span class="service">Service</span>
+				<span class="service">Industrial</span>
+				<span class="service">Interaction</span>
+				<span class="service">System</span>
+			</div>
 		</div>
 	</header>
 	<main>
-		<section id="bio">
-			<Picture
-				src={portrait}
-				aspectRatio="1:1"
-				widths={[300, 500, 800]}
-				sizes="(max-width: 800px) 100%, 800px"
-				format={'png'}
-				class="portrait"
-				alt="Portrait Photo of Ruby Quail with a pink tint applied"
-			/>
-			<div>
+		<section id="bio" class="card">
+			<div class="portrait">
+				<Image
+					src="/portrait_500x500.png"
+					width={300}
+					height={300}
+					class="portrait"
+					alt="Portrait Photo of Ruby Quail with a red tint applied"
+				/>
+			</div>
+			<div class="description stack">
 				<Intro />
-				<nav id="socials">
+				<nav class="cluster" id="socials">
 					{
-						socials.map(ic => (
+						socials.map((ic) => (
 							<IconButton icon={ic.icon} link={ic.link} id={ic.id}>
 								{ic.text}
 							</IconButton>
@@ -63,29 +90,76 @@ const projectGlob = Array.from(
 				</nav>
 			</div>
 		</section>
-		<section id="projects">
-			<h2>Projects</h2>
-			{
-				projectGlob.map(t => {
-					const fm = t.frontmatter;
-					return (
-						<div class:list={['project']}>
-							{fm.image ? (
-								<Svg href={resolve(t.url, fm.image)} title={fm.title} />
-							) : undefined}
-							<div>
-								<h3 set:text={fm.title} />
-								<p set:text={fm.desc} />
-								{fm.ready && (
-									<p>
-										<a href={t.url}>Find out more</a>
-									</p>
-								)}
-							</div>
-						</div>
-					);
-				})
-			}
+		<section class="card" id="blog">
+			<h2><a href="/blog">Recent Blog Posts</a></h2>
+			<ul style="padding-left: 0px; list-style: none;">
+				{
+					blogPosts.map((post) => (
+						<l style="">
+							<h3>
+								<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+							</h3>
+							<p class="date">
+								{moment(post.data.date).format('dddd, Do of MMMM YYYY')}
+							</p>
+							<p>{post.data.desc}</p>
+						</l>
+					))
+				}
+			</ul>
+			<p>
+				<a href="/blog">See more</a>
+			</p>
+		</section><section class="card" id="projects">
+			<h2>Artworks</h2>
+			<ul style="padding-left: 0px; list-style: none;">
+				{
+					artworks.map((a) => {
+						return (
+							<li class="card-item">
+								<a href={a.link}>
+									<Image
+										src={a.thumbnail}
+										inferSize
+										alt={`Screenshot of ${a.title}`}
+									/>
+								</a>
+								<div>
+									<a href={a.link}>
+										<h3>{a.title}</h3>
+									</a>
+
+									<p>{a.description}</p>
+								</div>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</section>
+		<section class="card" id="projects">
+			<h2>Other things I work on in my spare time</h2>
+			<ul style="padding-left: 0px; list-style: none;">
+				{
+					projectElements.map((a) => {
+						const frontMatter = a[0].frontmatter;
+						return (
+							<li class="card-item">
+								<div>
+									<hgroup>
+										<h3>{frontMatter.title}</h3>
+										<p>{frontMatter.subtitle}</p>
+									</hgroup>
+									<p>{frontMatter.desc}</p>
+								</div>
+							</li>
+						);
+					})
+				}
+			</ul>
 		</section>
 	</main>
+	<footer>
+		<p>Written with love by Ruby Quail, &copy; 2023</p>
+	</footer>
 </Layout>

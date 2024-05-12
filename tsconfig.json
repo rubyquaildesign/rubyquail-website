@@ -3,20 +3,27 @@
 		// Enable top-level await and other modern ESM features.
 		"target": "ESNext",
 		"module": "ESNext",
+		"plugins": [
+			{
+				"name": "importable",
+				"plugins": ["@importable/yaml"]
+			}
+		],
 		// Enable node-style module resolution, for things like npm package imports.
 		"moduleResolution": "node",
 		// Enable JSON imports.
 		"resolveJsonModule": true,
 		// Enable stricter transpilation for better output.
 		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
 		// Add type definitions for our Astro runtime.
-		"types": ["astro/client"],
+		"types": ["astro/client", "node"],
 		// Tell TypeScript where your build output is
 		"outDir": "./dist",
 		"baseUrl": ".",
-		"importsNotUsedAsValues": "error",
+		"strictNullChecks": true,
 		"strict": false,
-		"plugins": [{ "name": "typescript-plugin-toml" }],
+		"lib": ["DOM", "ES2020"],
 		"paths": {
 			"_data/*": ["src/_data/*"],
 			"_styles/*": ["src/styles/*"],
@@ -24,5 +31,7 @@
 			"_layouts/*": ["src/layouts/*"],
 			"_markdown/*": ["src/markdown-data/*"]
 		}
-	}
+	},
+	"include": ["./src/", "./tomlPlugin", "./api/**/*"],
+	"exclude": ["/node_modules/**/*"]
 }
