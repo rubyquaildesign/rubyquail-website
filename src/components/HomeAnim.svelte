@@ -72,9 +72,9 @@
 		<g style="fill: var(--background)">
 			{@html pierElement.innerHTML}
 		</g>
-		<a href="/blog">
+		<g>
 			{@html noteElement.outerHTML}
-		</a>
+		</g>
 		<g>
 			<path
 				d={quailElement.querySelector('#body').getAttribute('d')}

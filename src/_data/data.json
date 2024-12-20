@@ -48,10 +48,10 @@
 			"text": "Email"
 		},
 		"twitter": {
-			"id": "twt",
-			"icon": "carbon:logo-twitter",
-			"link": "https://twitter.com/RubyQuailDesign",
-			"text": "Twitter"
+			"id": "bsk",
+			"icon": "simple-icons:bluesky",
+			"link": "https://quail.bsky.social",
+			"text": "Bluesky"
 		},
 		"insta": {
 			"id": "inst",
@@ -82,12 +82,6 @@
 			"icon": "simple-icons:mastodon",
 			"link": "https://lgbtqia.space/@quail",
 			"text": "Mastodon"
-		},
-		"cohost": {
-			"id": "cohost",
-			"icon": "fluent:oval-24-filled",
-			"link": "https://cohost.org/quail",
-			"text": "Cohost"
 		}
 	}
 }

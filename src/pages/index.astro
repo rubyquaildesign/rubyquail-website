@@ -1,22 +1,21 @@
 ---
 // Supports weights 300-700
 
-import { Image, imageConfig } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import '@fontsource-variable/lora';
 import '@fontsource/space-mono';
-import '../styles/home.css';
-import { Content as Intro } from '../intro.md';
-import Layout from '_layouts/Basic.astro';
-import D from '../_data/data.json';
-import IconButton from '_components/IconButton.astro';
-import HomeAnim from '_components/HomeAnim.svelte';
-import moment from 'moment';
-import artworks, { artType } from '../data';
-import * as path from 'node:path';
-import type { MarkdownInstance } from 'astro';
 import AcknowledgementOfCountry from '_components/AcknowledgementOfCountry.svelte';
+import HomeAnim from '_components/HomeAnim.svelte';
+import IconButton from '_components/IconButton.astro';
+import Layout from '_layouts/Basic.astro';
+import type { MarkdownInstance } from 'astro';
 import { SEO } from 'astro-seo';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import moment from 'moment';
+import D from '../_data/data.json';
+import artworks from '../data';
+import { Content as Intro } from '../intro.md';
+import '../styles/home.css';
 const socials = Object.values(D.icons);
 const blogPosts = (await getCollection('blog'))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -91,7 +90,7 @@ const projectElements = await Promise.all(
 			</div>
 		</section>
 		<section class="card" id="blog">
-			<h2><a href="/blog">Recent Blog Posts</a></h2>
+			<h2>Recent Blog Posts</h2>
 			<ul style="padding-left: 0px; list-style: none;">
 				{
 					blogPosts.map((post) => (

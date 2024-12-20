@@ -7,12 +7,13 @@ import remarkSectionize from 'remark-sectionize';
 import remarkFigureCaption from '@microflash/remark-figure-caption';
 import yaml from '@importable/yaml/astro';
 import { visit } from 'unist-util-visit';
+import icon from 'astro-icon';
 import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://rubyquail.design',
-	integrations: [mdx(), robotsTxt(), sitemap(), yaml(), svelte()],
+	integrations: [mdx(), robotsTxt(), sitemap(), yaml(), svelte(), icon()],
 	markdown: {
 		syntaxHighlight: 'shiki',
 		shikiConfig: {

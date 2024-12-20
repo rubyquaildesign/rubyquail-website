@@ -23,7 +23,7 @@
 		"baseUrl": ".",
 		"strictNullChecks": true,
 		"strict": false,
-		"lib": ["DOM", "ES2020"],
+		"lib": ["DOM", "ESNext"],
 		"paths": {
 			"_data/*": ["src/_data/*"],
 			"_styles/*": ["src/styles/*"],
